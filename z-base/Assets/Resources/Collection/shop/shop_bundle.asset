@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac487aa371ec46442b3750cf77ac4b36, type: 3}
+  m_Name: shop_bundle
+  m_EditorClassIdentifier: 
+  dataGroups:
+  - id: 1
+    rewards:
+    - resType: 1
+      resId: 1001
+      resNumber: 10
+    - resType: 1
+      resId: 1002
+      resNumber: 1
+    - resType: 2
+      resId: 0
+      resNumber: 5
+    - resType: 0
+      resId: 0
+      resNumber: 5
+    stock: 2
+    cost: 19.99
+    packnameIap: bundle1
+    stockFree: 4
+    free: 1
+  - id: 2
+    rewards:
+    - resType: 2
+      resId: 0
+      resNumber: 5
+    - resType: 2
+      resId: 1
+      resNumber: 1
+    - resType: 2
+      resId: 2
+      resNumber: 5
+    - resType: 2
+      resId: 3
+      resNumber: 1
+    stock: -1
+    cost: 29.99
+    packnameIap: bundle2
+    stockFree: 0
+    free: 0
+  - id: 3
+    rewards:
+    - resType: 1
+      resId: 2001
+      resNumber: 5
+    - resType: 0
+      resId: 0
+      resNumber: 1
+    - resType: 2
+      resId: 1
+      resNumber: 1
+    - resType: 2
+      resId: 2
+      resNumber: 1
+    stock: -1
+    cost: 39.99
+    packnameIap: bundle3
+    stockFree: 0
+    free: 0

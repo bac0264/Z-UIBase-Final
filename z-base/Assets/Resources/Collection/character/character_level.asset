@@ -1,0 +1,264 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd7ed3c9635cd644b276bba6b3207a6, type: 3}
+  m_Name: character_level
+  m_EditorClassIdentifier: 
+  dataGroups:
+  - level: 1
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 100
+    - resType: 0
+      resId: 0
+      resNumber: 150
+  - level: 2
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 150
+    - resType: 0
+      resId: 0
+      resNumber: 150
+  - level: 3
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 200
+  - level: 4
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 250
+    - resType: 0
+      resId: 0
+      resNumber: 150
+  - level: 5
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 300
+  - level: 6
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 350
+  - level: 7
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 400
+  - level: 8
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 450
+  - level: 9
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 500
+  - level: 10
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 550
+  - level: 11
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 600
+  - level: 12
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 650
+  - level: 13
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 700
+  - level: 14
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 750
+  - level: 15
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 800
+  - level: 16
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 850
+  - level: 17
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 900
+  - level: 18
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 950
+  - level: 19
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1000
+  - level: 20
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1050
+  - level: 21
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1100
+  - level: 22
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1150
+  - level: 23
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1200
+  - level: 24
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1250
+  - level: 25
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1300
+  - level: 26
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1350
+  - level: 27
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1400
+  - level: 28
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1450
+  - level: 29
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1500
+  - level: 30
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1550
+  - level: 31
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1600
+  - level: 32
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1650
+  - level: 33
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1700
+  - level: 34
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1750
+  - level: 35
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1800
+  - level: 36
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1850
+  - level: 37
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1900
+  - level: 38
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 1950
+  - level: 39
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 2000
+  - level: 40
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 2050
+  - level: 41
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 2100
+  - level: 42
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 2150
+  - level: 43
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 2200
+  - level: 44
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 2250
+  - level: 45
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 2300
+  - level: 46
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 2350
+  - level: 47
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 2400
+  - level: 48
+    rewardDatas:
+    - resType: 0
+      resId: 1
+      resNumber: 0

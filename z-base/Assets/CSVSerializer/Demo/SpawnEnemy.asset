@@ -1,0 +1,737 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: SpawnEnemy
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemyExample
+  spawnEnemies:
+  - time_start: 0
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1000
+      number: 2
+      interval: 1
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 16
+    time_end: -1
+    zone_id: 0300000004000000
+    bonuses:
+    - type_id: 1001
+      number: 2
+      interval: 5
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 31
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1000
+      number: 1
+      interval: 1
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+    - type_id: 1001
+      number: 1
+      interval: 1
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 31
+    time_end: -1
+    zone_id: 0300000004000000
+    bonuses:
+    - type_id: 1004
+      number: 2
+      interval: 15
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 46
+    time_end: -1
+    zone_id: 000000000100000002000000
+    bonuses:
+    - type_id: 1000
+      number: 5
+      interval: 1
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 46
+    time_end: 181
+    zone_id: 0300000004000000
+    bonuses:
+    - type_id: 1001
+      number: 5
+      interval: 10
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 61
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1000
+      number: 1
+      interval: 1
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+    - type_id: 1001
+      number: 1
+      interval: 1
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 61
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1005
+      number: 2
+      interval: 15
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 76
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1002
+      number: 2
+      interval: 5
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 76
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1003
+      number: 3
+      interval: 15
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 91
+    time_end: -1
+    zone_id: 0300000004000000
+    bonuses:
+    - type_id: 1000
+      number: 5
+      interval: 1
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 91
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1002
+      number: 1
+      interval: 2
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 106
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1002
+      number: 1
+      interval: 2
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 121
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1003
+      number: 2
+      interval: 1
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 136
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1003
+      number: 1
+      interval: 1
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 151
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1003
+      number: 1
+      interval: 1
+      bonus_hp: 0
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 166
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1000
+      number: 5
+      interval: 1
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+    - type_id: 1004
+      number: 1
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 181
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1000
+      number: 1
+      interval: 1
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+    - type_id: 1004
+      number: 1
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 181
+    time_end: -1
+    zone_id: 0300000004000000
+    bonuses:
+    - type_id: 1004
+      number: 5
+      interval: 10
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 196
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1000
+      number: 1
+      interval: 1
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+    - type_id: 1004
+      number: 1
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 211
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1005
+      number: 2
+      interval: 3
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 226
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1005
+      number: 1
+      interval: 3
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 241
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1005
+      number: 1
+      interval: 3
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 256
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1003
+      number: 2
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 271
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1003
+      number: 1
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 286
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1003
+      number: 1
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 301
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1000
+      number: 5
+      interval: 1
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+    - type_id: 1004
+      number: 1
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 316
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1000
+      number: 1
+      interval: 1
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+    - type_id: 1004
+      number: 1
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 331
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1000
+      number: 1
+      interval: 1
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+    - type_id: 1004
+      number: 1
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 346
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1005
+      number: 2
+      interval: 3
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 361
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1005
+      number: 1
+      interval: 3
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 376
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1005
+      number: 1
+      interval: 3
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 391
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1003
+      number: 2
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 406
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1003
+      number: 1
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 421
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1003
+      number: 1
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 436
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1000
+      number: 5
+      interval: 1
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+    - type_id: 1004
+      number: 1
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 451
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1000
+      number: 1
+      interval: 1
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+    - type_id: 1004
+      number: 1
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 466
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1000
+      number: 1
+      interval: 1
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+    - type_id: 1004
+      number: 1
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 481
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1005
+      number: 3
+      interval: 3
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 496
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1005
+      number: 1
+      interval: 3
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 511
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1005
+      number: 1
+      interval: 3
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 526
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1003
+      number: 3
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 541
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1003
+      number: 1
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 556
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1003
+      number: 1
+      interval: 2
+      bonus_hp: 1
+      bonus_move_speed: 0
+      bonus_atk: 0
+  - time_start: 571
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1000
+      number: 5
+      interval: 1
+      bonus_hp: 2
+      bonus_move_speed: 1
+      bonus_atk: 0
+    - type_id: 1004
+      number: 1
+      interval: 2
+      bonus_hp: 2
+      bonus_move_speed: 1
+      bonus_atk: 0
+  - time_start: 586
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1000
+      number: 1
+      interval: 1
+      bonus_hp: 2
+      bonus_move_speed: 1
+      bonus_atk: 0
+    - type_id: 1004
+      number: 1
+      interval: 2
+      bonus_hp: 2
+      bonus_move_speed: 1
+      bonus_atk: 0
+  - time_start: 601
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1000
+      number: 1
+      interval: 1
+      bonus_hp: 2
+      bonus_move_speed: 1
+      bonus_atk: 0
+    - type_id: 1004
+      number: 1
+      interval: 2
+      bonus_hp: 2
+      bonus_move_speed: 1
+      bonus_atk: 0
+  - time_start: 616
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1005
+      number: 3
+      interval: 3
+      bonus_hp: 2
+      bonus_move_speed: 1
+      bonus_atk: 0
+  - time_start: 631
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1005
+      number: 1
+      interval: 3
+      bonus_hp: 2
+      bonus_move_speed: 1
+      bonus_atk: 0
+  - time_start: 646
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1005
+      number: 1
+      interval: 3
+      bonus_hp: 2
+      bonus_move_speed: 1
+      bonus_atk: 0
+  - time_start: 661
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1003
+      number: 3
+      interval: 2
+      bonus_hp: 2
+      bonus_move_speed: 1
+      bonus_atk: 0
+  - time_start: 676
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1003
+      number: 1
+      interval: 2
+      bonus_hp: 2
+      bonus_move_speed: 1
+      bonus_atk: 0
+  - time_start: 691
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1003
+      number: 1
+      interval: 2
+      bonus_hp: 2
+      bonus_move_speed: 1
+      bonus_atk: 0
+  - time_start: 706
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1000
+      number: 5
+      interval: 1
+      bonus_hp: 3
+      bonus_move_speed: 2
+      bonus_atk: 1
+    - type_id: 1004
+      number: 1
+      interval: 2
+      bonus_hp: 3
+      bonus_move_speed: 2
+      bonus_atk: 1
+  - time_start: 721
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1000
+      number: 1
+      interval: 1
+      bonus_hp: 3
+      bonus_move_speed: 2
+      bonus_atk: 1
+    - type_id: 1004
+      number: 1
+      interval: 2
+      bonus_hp: 3
+      bonus_move_speed: 2
+      bonus_atk: 1
+  - time_start: 736
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1000
+      number: 1
+      interval: 1
+      bonus_hp: 3
+      bonus_move_speed: 2
+      bonus_atk: 1
+    - type_id: 1004
+      number: 1
+      interval: 2
+      bonus_hp: 3
+      bonus_move_speed: 2
+      bonus_atk: 1
+  - time_start: 751
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1005
+      number: 3
+      interval: 3
+      bonus_hp: 3
+      bonus_move_speed: 2
+      bonus_atk: 1
+  - time_start: 766
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1005
+      number: 1
+      interval: 3
+      bonus_hp: 3
+      bonus_move_speed: 2
+      bonus_atk: 1
+  - time_start: 781
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1005
+      number: 1
+      interval: 3
+      bonus_hp: 3
+      bonus_move_speed: 2
+      bonus_atk: 1
+  - time_start: 796
+    time_end: -1
+    zone_id: 0000000001000000020000000300000004000000
+    bonuses:
+    - type_id: 1003
+      number: 3
+      interval: 2
+      bonus_hp: 3
+      bonus_move_speed: 2
+      bonus_atk: 1
+  - time_start: 811
+    time_end: -1
+    zone_id: 05000000060000000700000009000000
+    bonuses:
+    - type_id: 1003
+      number: 1
+      interval: 2
+      bonus_hp: 3
+      bonus_move_speed: 2
+      bonus_atk: 1
+  - time_start: 826
+    time_end: -1
+    zone_id: 08000000
+    bonuses:
+    - type_id: 1003
+      number: 1
+      interval: 2
+      bonus_hp: 3
+      bonus_move_speed: 2
+      bonus_atk: 1

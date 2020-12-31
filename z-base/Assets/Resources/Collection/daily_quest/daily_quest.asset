@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fae71486482a5445864b3bd67c2b264, type: 3}
+  m_Name: daily_quest
+  m_EditorClassIdentifier: 
+  dataGroups:
+  - group: 1
+    id: 0
+    type: 0
+    idTarget: 110110
+    required: 10
+    rewards:
+    - resType: 0
+      resId: 0
+      resNumber: 1
+    title: title_pass_campaign_stage
+    iconName: icon_campaign
+    description: 
+  - group: 1
+    id: 1
+    type: 1
+    idTarget: 110210
+    required: 10
+    rewards:
+    - resType: 0
+      resId: 0
+      resNumber: 10
+    title: title_pass_campaign_stage
+    iconName: icon_campaign
+    description: 
+  - group: 1
+    id: 2
+    type: 2
+    idTarget: 110310
+    required: 10
+    rewards:
+    - resType: 0
+      resId: 0
+      resNumber: 19
+    title: title_pass_campaign_stage
+    iconName: icon_campaign
+    description: 
+  - group: 1
+    id: 3
+    type: 3
+    idTarget: 120110
+    required: 10
+    rewards:
+    - resType: 0
+      resId: 0
+      resNumber: 28
+    title: title_pass_campaign_stage
+    iconName: icon_campaign
+    description: 

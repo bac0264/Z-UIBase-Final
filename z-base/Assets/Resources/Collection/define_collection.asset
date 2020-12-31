@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9c27bd03bb87141b1f2db848ff73cd, type: 3}
+  m_Name: define_collection
+  m_EditorClassIdentifier: 
+  dataGroups:
+  - id: 1
+    classCollection: DefineCollection
+    classData: DefineData
+    assetPath: Collection/define_collection
+  - id: 2
+    classCollection: DefineCollection
+    classData: DefineData
+    assetPath: Collection/define_collection
+  - id: 3
+    classCollection: ShopBundleCollection
+    classData: BundlePackInfo
+    assetPath: Collection/shop/shop_bundle
+  - id: 4
+    classCollection: ShopRawPackCollection
+    classData: RawPackInfo
+    assetPath: Collection/shop/shop_raw_pack
+  - id: 5
+    classCollection: ItemStatCollection
+    classData: ItemStatData
+    assetPath: Collection/item/item_stats
+  - id: 6
+    classCollection: StatConfigCollection
+    classData: StatConfigData
+    assetPath: Collection/item/stat_config
+  - id: 7
+    classCollection: SellItemCollection
+    classData: SellItemData
+    assetPath: Collection/item/sell_item
+  - id: 8
+    classCollection: UpgradeItemCollection
+    classData: UpgradeItemData
+    assetPath: Collection/item/upgrade_item
+  - id: 9
+    classCollection: CharacterStatCollection
+    classData: CharacterStatData
+    assetPath: Collection/character/character_stats
+  - id: 10
+    classCollection: CharacterStatConfigCollection
+    classData: CharacterStatConfigData
+    assetPath: Collection/character/character_config
+  - id: 11
+    classCollection: CharacterLevelCollection
+    classData: CharacterLevelData
+    assetPath: Collection/character/character_level
+  - id: 12
+    classCollection: DailyRewardCollection
+    classData: DailyRewardData
+    assetPath: Collection/daily_reward/daily_reward
+  - id: 13
+    classCollection: GachaCollection
+    classData: GachaData
+    assetPath: Collection/gacha/gacha_config
+  - id: 14
+    classCollection: AdsConfigCollection
+    classData: AdsConfigData
+    assetPath: Collection/ads/ads_config
+  - id: 15
+    classCollection: CampaignConfigCollection
+    classData: CampaignStageData
+    assetPath: Collection/campaign/campaign_config
+  - id: 16
+    classCollection: CampaignRequireConfigCollection
+    classData: CampaignRequireConfigData
+    assetPath: Collection/campaign/campaign_require_config
+  - id: 17
+    classCollection: DailyQuestCollection
+    classData: DailyQuestData
+    assetPath: Collection/daily_quest/daily_quest

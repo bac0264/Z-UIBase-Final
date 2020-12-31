@@ -1,0 +1,5 @@
+id,res_type,res_id,res_number,time_config,min_id,max_id,rate_1,rate_2,rate_3
+1,0,10,1,20,1,5,70,90,100
+,0,10,10,,,,,,
+2,0,11,1,20,1,5,0,60,100
+,0,11,100,,,,,,

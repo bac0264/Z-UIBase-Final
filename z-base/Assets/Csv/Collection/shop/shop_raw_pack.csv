@@ -1,0 +1,6 @@
+id,res_type,res_id,res_number,stock,cost,packname_iap,free,stock_free
+1,0,1,100,2,19.99,pack1,TRUE,3
+2,0,1,200,-1,29.99,pack2,,
+3,0,1,300,-1,39.99,pack3,,
+4,0,1,400,,49.99,pack4,,
+5,0,1,500,-1,59.99,pack5,,

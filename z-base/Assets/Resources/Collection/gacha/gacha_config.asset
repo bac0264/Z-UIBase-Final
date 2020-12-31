@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5e7e5dad7d824429c1285997998c42, type: 3}
+  m_Name: gacha_config
+  m_EditorClassIdentifier: 
+  dataGroups:
+  - id: 1
+    consumeGachas:
+    - resType: 0
+      resId: 10
+      resNumber: 1
+    - resType: 0
+      resId: 10
+      resNumber: 10
+    timeConfig: 20
+    minId: 1
+    maxId: 5
+    rate1: 70
+    rate2: 90
+    rate3: 100
+  - id: 2
+    consumeGachas:
+    - resType: 0
+      resId: 11
+      resNumber: 1
+    - resType: 0
+      resId: 11
+      resNumber: 100
+    timeConfig: 20
+    minId: 1
+    maxId: 5
+    rate1: 0
+    rate2: 60
+    rate3: 100

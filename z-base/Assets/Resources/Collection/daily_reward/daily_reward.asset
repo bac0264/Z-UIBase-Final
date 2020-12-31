@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23eb4d367f222424abaacfd1905fab0a, type: 3}
+  m_Name: daily_reward
+  m_EditorClassIdentifier: 
+  dataGroups:
+  - id: 1
+    rewards:
+    - resType: 0
+      resId: 1
+      resNumber: 100
+  - id: 2
+    rewards:
+    - resType: 0
+      resId: 1
+      resNumber: 200
+  - id: 3
+    rewards:
+    - resType: 0
+      resId: 1
+      resNumber: 300
+  - id: 4
+    rewards:
+    - resType: 0
+      resId: 1
+      resNumber: 400
+  - id: 5
+    rewards:
+    - resType: 1
+      resId: 1001
+      resNumber: 1
+  - id: 6
+    rewards:
+    - resType: 2
+      resId: 0
+      resNumber: 1
+  - id: 7
+    rewards:
+    - resType: 1
+      resId: 2001
+      resNumber: 1
