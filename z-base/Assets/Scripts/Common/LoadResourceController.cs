@@ -185,19 +185,15 @@ public class LoadResourceController
     {
         return LoadFromResource<DailyQuestView>(PathUtils.dailyQuestView);
     }
+    
+    public static LanguageSubView GetLanguageSubView()
+    {
+        return LoadFromResource<LanguageSubView>(PathUtils.languageSubView);
+    }
+    
     #endregion
     
     #region Get Collection
-
-    public static ShopRawPackCollection GetShopRawPackCollection()
-    {
-        return LoadFromResource<ShopRawPackCollection>(PathUtils.shopRawPack);
-    }
-    
-    public static ShopBundleCollection GetShopBundleCollection()
-    {
-        return LoadFromResource<ShopBundleCollection>(PathUtils.shopBundle);
-    }
     
     public static ItemStatCollection GetItemStat()
     {
@@ -267,6 +263,17 @@ public class LoadResourceController
     public static CampaignRequireConfigCollection GetCampaignRequireConfigCollection()
     {
         return LoadFromResource<CampaignRequireConfigCollection>(PathUtils.campaignRequireConfig);
+    }
+
+    public static ShopAllDataCollection GetShopAllDataCollection()
+    {
+        return LoadFromResource<ShopAllDataCollection>(PathUtils.allShopDataCollection);
+    }
+    public static T GetShopWithType<T>() where T : ShopBase
+    {
+        var shopAllData = GetShopAllDataCollection();
+        if (shopAllData == null) return null;
+        return (T) shopAllData.GetShopWithType(typeof(T));
     }
     #endregion
 }

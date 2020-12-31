@@ -60,6 +60,8 @@ public class UIModuleStageCampaign : MonoBehaviour, IEnhancedScrollerDelegate
     {
         SceneManager.LoadScene("10.Mode");
     }
+    
+    #region enhance
     public int GetNumberOfCells(EnhancedScroller scroller)
     {
         // in this example, we just pass the number of our data elements
@@ -90,4 +92,5 @@ public class UIModuleStageCampaign : MonoBehaviour, IEnhancedScrollerDelegate
         // return the cell to the scroller
         return cellView;
     }
+    #endregion
 }

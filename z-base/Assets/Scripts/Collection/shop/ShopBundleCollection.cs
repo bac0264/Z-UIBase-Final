@@ -10,24 +10,18 @@ public class BundlePackInfo : RawPackInfo
 }
 
 [System.Serializable]
-public class ShopBundleCollection : ScriptableObject
+public class ShopBundleCollection : ShopBase
 {
     public BundlePackInfo[] dataGroups;
-
-    public List<string> GetShopBundleProductIds()
+    public override void AddConsumableIds(Action<string> addConsumableAction)
     {
-        var list = new List<string>();
         for (int i = 0; i < dataGroups.Length; i++)
         {
-            list.Add(dataGroups[i].packnameIap);
+            var packNameId = dataGroups[i].packnameIap;
+            if (!packNameId.Equals("") && !packNameId.Equals(" "))
+            {
+                addConsumableAction?.Invoke(packNameId);
+            }
         }
-
-        return list;
     }
 }
-
-// #if UNITY_EDITOR
-// public class ShopBundleProcessor : BasePostProcessor
-// {
-// }
-// #endif

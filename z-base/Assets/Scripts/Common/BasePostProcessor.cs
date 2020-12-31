@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
-using EnhancedScrollerDemos.MultipleCellTypesDemo;
 using UnityEditor;
 using UnityEngine;
 
@@ -58,7 +54,7 @@ public class BasePostProcessor : AssetPostprocessor
         {
             if (str.IndexOf(path) != -1)
             {
-                Debug.Log("str: " + str);
+//                Debug.Log("str: " + str);
                 TextAsset data = AssetDatabase.LoadAssetAtPath<TextAsset>(str);
 
                 var isDefineCollection = path.Equals("define_collection.csv");

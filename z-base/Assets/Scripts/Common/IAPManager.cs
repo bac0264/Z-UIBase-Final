@@ -93,29 +93,15 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
     private void AddConsumableIds()
     {
-        AddRawPackIds();
-        AddBundleIds();
-    }
-
-    private void AddRawPackIds()
-    {
-        var rawCollection = LoadResourceController.GetShopRawPackCollection();
-        var productIdList = rawCollection.GetShopRawPackProductIds();
-        for (int i = 0; i < productIdList.Count; i++)
+        Action<string> addConsumableIds = delegate(string packNameId)
         {
-            builder.AddProduct(productIdList[i], ProductType.Consumable);
-        }
+            builder.AddProduct(packNameId, ProductType.Consumable);
+        };
+        
+        var shopData = LoadResourceController.GetShopAllDataCollection();
+        shopData.AddConsumableIds(addConsumableIds);
     }
     
-    private void AddBundleIds()
-    {
-        var bundleCollection = LoadResourceController.GetShopBundleCollection();
-        var productIdList = bundleCollection.GetShopBundleProductIds();
-        for (int i = 0; i < productIdList.Count; i++)
-        {
-            builder.AddProduct(productIdList[i], ProductType.Consumable);
-        }
-    }
     private bool IsInitialized()
     {
         // Only say we are initialized if both the Purchasing references are set.

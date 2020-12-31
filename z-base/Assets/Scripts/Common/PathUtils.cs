@@ -31,10 +31,12 @@ public class PathUtils
     public const string campaignMapView = "Prefabs/campaign_map_view";
     public const string campaignStageView = "Prefabs/campaign_stage_view";
     public const string dailyQuestView = "Prefabs/daily_quest_view";
+    public const string languageSubView = "Prefabs/language_sub_view";
     
     public const string defineCollection = "Collection/define_collection";
     public const string shopRawPack = "Collection/shop/shop_raw_pack";
     public const string shopBundle = "Collection/shop/shop_bundle";
+    public const string allShopDataCollection = "Collection/shop/all_shop_data";
     public const string itemStats = "Collection/item/item_stats";
     public const string statConfig = "Collection/item/stat_config";
     public const string upgradeItem = "Collection/item/upgrade_item";

@@ -19,8 +19,8 @@ public class UIModuleShopView : MonoBehaviour
 
     private void Awake()
     {
-        shopBundlePack = LoadResourceController.GetShopBundleCollection();
-        shopRawPack = LoadResourceController.GetShopRawPackCollection();
+        shopBundlePack = LoadResourceController.GetShopWithType<ShopBundleCollection>();
+        shopRawPack = LoadResourceController.GetShopWithType<ShopRawPackCollection>();
         
         rawPrefabs = LoadResourceController.GetRawPackView();
         bundleItemPrefabs = LoadResourceController.GetBundleItemView();

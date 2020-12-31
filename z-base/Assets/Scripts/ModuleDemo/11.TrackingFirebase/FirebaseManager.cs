@@ -28,12 +28,15 @@ public class FirebaseManager : MonoBehaviour
         });
     }
 
-    
-
-    public void OnClickButton()
+    public void DebugLog()
     {
-        Debug.Log("on_click");
-        FirebaseAnalytics.LogEvent("on_click");
+        Debug.Log("debug log");
+    }
+
+    public void SetLogEvent(string eventName)
+    {
+        Debug.Log(eventName);
+        FirebaseAnalytics.LogEvent(eventName);
     }
 
 }
