@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246266806dde20419c76c650fd38a51, type: 3}
   m_Name: all_shop_data
   m_EditorClassIdentifier: 
-  baseShops: []
+  shopDict:
+    keys:
+    - ShopBundleCollection
+    - ShopRawPackCollection
+    values:
+    - {fileID: 11400000, guid: 8c543b6099296d8499e7515878cb879a, type: 2}
+    - {fileID: 11400000, guid: 68554a9a22a880b48b0c5428803141a0, type: 2}

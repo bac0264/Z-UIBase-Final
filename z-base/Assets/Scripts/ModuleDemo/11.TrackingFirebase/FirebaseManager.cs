@@ -8,7 +8,7 @@ using UnityEngine;
 public class FirebaseManager : MonoBehaviour
 {
     public static FirebaseManager instance;
-    
+
     void Start()
     {
         if (instance == null)
@@ -19,12 +19,12 @@ public class FirebaseManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
         DontDestroyOnLoad(gameObject);
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
         {
-             var app = FirebaseApp.DefaultInstance;
-             FirebaseAnalytics.LogEvent("run");
+            var app = FirebaseApp.DefaultInstance;
+            FirebaseAnalytics.LogEvent("run");
         });
     }
 
@@ -33,10 +33,13 @@ public class FirebaseManager : MonoBehaviour
         Debug.Log("debug log");
     }
 
-    public void SetLogEvent(string eventName)
+    public void SetLogEvent(string eventName, List<Parameter> parameters = null)
     {
-        Debug.Log(eventName);
-        FirebaseAnalytics.LogEvent(eventName);
+        if (parameters == null)
+            FirebaseAnalytics.LogEvent(eventName);
+        else
+        {
+            FirebaseAnalytics.LogEvent(eventName, parameters.ToArray());
+        }
     }
-
 }

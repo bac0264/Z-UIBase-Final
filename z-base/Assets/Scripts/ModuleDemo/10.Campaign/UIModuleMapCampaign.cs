@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIModuleMapCampaign : MonoBehaviour
+public class UIModuleMapCampaign : AWindowController
 {
     [SerializeField] private Transform mapViewAnchor;
     [SerializeField] private Snap snap;
@@ -12,12 +13,13 @@ public class UIModuleMapCampaign : MonoBehaviour
     [SerializeField] private Transform buttonLock;
 
     private CampaignModeConfig mode;
-    
+
     private List<CampaignMapView> mapViews = new List<CampaignMapView>();
     private CampaignMapView prefab = null;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         mode = LoadResourceController.GetCampaignConfigCollection()
             .GetModeCampaignWithId(DataPlayer.GetModule<PlayerCampaign>().GetModePick());
         InitOrUpdateView(mode);
@@ -27,7 +29,7 @@ public class UIModuleMapCampaign : MonoBehaviour
     {
         this.mode = mode;
         if (prefab == null) prefab = LoadResourceController.GetCampaignMapView();
-        
+
         int i = 0;
         for (; i < mode.mapList.Count; i++)
         {
@@ -43,6 +45,7 @@ public class UIModuleMapCampaign : MonoBehaviour
                 snap.AddRectTransform(view.GetComponent<RectTransform>());
             }
         }
+
         snap.SetupSnap(RefreshUI);
     }
 
@@ -51,7 +54,7 @@ public class UIModuleMapCampaign : MonoBehaviour
         var mapId = snap.GetIndex() + 1;
 
         var map = mode.GetMapWithId(mapId);
-        
+
         // stageCampaign.gameObject.SetActive(true);
         // stageCampaign.UpdateView(map);
         SceneManager.LoadScene("10.Stage");
@@ -69,7 +72,7 @@ public class UIModuleMapCampaign : MonoBehaviour
             buttonLock.gameObject.SetActive(true);
             return;
         }
-        
+
         var state = map.GetState();
 
         if (state == MapState.Completed || state == MapState.Opening)
@@ -77,7 +80,7 @@ public class UIModuleMapCampaign : MonoBehaviour
             buttonGo.gameObject.SetActive(true);
             buttonLock.gameObject.SetActive(false);
         }
-        else 
+        else
         {
             buttonGo.gameObject.SetActive(false);
             buttonLock.gameObject.SetActive(true);

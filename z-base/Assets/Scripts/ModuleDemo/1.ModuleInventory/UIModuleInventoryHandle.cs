@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using UnityEngine;
 
-public class UIModuleInventoryHandle : MonoBehaviour
+public class UIModuleInventoryHandle : AWindowController
 {
     [SerializeField] private UIModuleEquipmentView equipmentView;
     [SerializeField] private UIModuleInventoryView inventoryView;
@@ -11,12 +12,19 @@ public class UIModuleInventoryHandle : MonoBehaviour
 
     private PlayerInventory playerInventory = null;
     private PlayerCharacter playerCharacter = null;
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         equipmentView.OnRightClickEvent = Unequip;
         inventoryView.OnRightClickEvent = Equip;
         playerInventory = DataPlayer.GetModule<PlayerInventory>();
         playerCharacter = DataPlayer.GetModule<PlayerCharacter>();
+    }
+
+    protected override void OnPropertiesSet()
+    {
+        inventoryView.InitData();
+        equipmentView.InitOrUpdateView();
     }
 
     private void OnValidate()
@@ -49,7 +57,7 @@ public class UIModuleInventoryHandle : MonoBehaviour
         var index = playerCharacter.GetCurrentCharacter().characterId + 1;
         if (index > 5) index = 0;
         playerCharacter.SetCurrentCharacter(index);
-        equipmentView.RefreshUI();
+        equipmentView.InitOrUpdateView();
         inventoryView.ReloadData();
         characterInfoView.UpdateCharacterView();
     }

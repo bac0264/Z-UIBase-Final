@@ -14,26 +14,23 @@ public class UIModuleInventoryView : MonoBehaviour, IEnhancedScrollerDelegate
     private List<InventoryItemContainer> _data;
 
     private List<ItemResource> itemFilterDatas;
-
     private List<ItemResource> itemDatas;
 
     public EnhancedScroller masterScroller;
-
     public EnhancedScrollerCellView masterCellViewPrefab;
 
     public Action<ItemResource> OnRightClickEvent;
 
-    void Start()
+    void Awake()
     {
         masterScroller.Delegate = this;
         itemDatas = DataPlayer.GetModule<PlayerInventory>().GetItemResources();
-        LoadData();
     }
 
     /// <summary>
     /// Populates the data with a lot of records
     /// </summary>
-    private void LoadData()
+    public void InitData()
     {
         int RowCount = COLUMN;
         _data = new List<InventoryItemContainer>();
@@ -58,21 +55,22 @@ public class UIModuleInventoryView : MonoBehaviour, IEnhancedScrollerDelegate
                 masterData.childData.Add(itemDatas[j]);
             }
         }
+
         // tell the scroller to reload now that we have the data
         masterScroller.GetComponent<ScrollRect>().verticalNormalizedPosition = 0;
-        ReloadData();
+        Invoke("_InitData", 0.1f);
     }
 
     private void UpdateData()
     {
         _data.Clear();
-        
+
         int RowCount = COLUMN;
         int m = itemDatas.Count % RowCount;
         int n = itemDatas.Count / RowCount;
         if (m > 0)
             n += 1;
-        
+
         int j = 0;
         for (var i = 0; i < n + 1; i++)
         {
@@ -89,18 +87,22 @@ public class UIModuleInventoryView : MonoBehaviour, IEnhancedScrollerDelegate
             }
         }
     }
+
     public void ReloadData()
     {
-        StartCoroutine(_ReloadData());
+        StartCoroutine(_ReloadDataWithUpdate());
     }
 
-    IEnumerator _ReloadData()
+    IEnumerator _ReloadDataWithUpdate()
     {
-        yield return new WaitForEndOfFrame();     
-        yield return new WaitForEndOfFrame();   
-        yield return new WaitForEndOfFrame();   
-        yield return new WaitForEndOfFrame();   
         UpdateData();
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        masterScroller.ReloadData();
+    }
+
+    void _InitData()
+    {
         masterScroller.ReloadData();
     }
 
@@ -113,9 +115,9 @@ public class UIModuleInventoryView : MonoBehaviour, IEnhancedScrollerDelegate
     {
         UpdateData();
         var index = 0;
-        for(int i = 0; i < itemDatas.Count; i++)
+        for (int i = 0; i < itemDatas.Count; i++)
         {
-            if(itemDatas[i].inventoryId == inventoryId)
+            if (itemDatas[i].inventoryId == inventoryId)
             {
                 index = i;
                 break;
@@ -123,7 +125,7 @@ public class UIModuleInventoryView : MonoBehaviour, IEnhancedScrollerDelegate
         }
 
         yield return new WaitForEndOfFrame();
-        
+
         masterScroller.ReloadData();
 
         var jumpIndex = index / COLUMN;
@@ -131,6 +133,7 @@ public class UIModuleInventoryView : MonoBehaviour, IEnhancedScrollerDelegate
 
         masterScroller.JumpToDataIndex(jumpIndex);
     }
+
     #region EnhancedScroller Handlers
 
     public int GetNumberOfCells(EnhancedScroller scroller)
@@ -145,11 +148,12 @@ public class UIModuleInventoryView : MonoBehaviour, IEnhancedScrollerDelegate
 
     public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
     {
-
-        UIModuleInventoryMasterCellView masterCellView = scroller.GetCellView(masterCellViewPrefab) as UIModuleInventoryMasterCellView;
+        UIModuleInventoryMasterCellView masterCellView =
+            scroller.GetCellView(masterCellViewPrefab) as UIModuleInventoryMasterCellView;
         masterCellView.SetData(_data[dataIndex], OnRightClickEvent);
         return masterCellView;
     }
+
     #endregion
 }
 

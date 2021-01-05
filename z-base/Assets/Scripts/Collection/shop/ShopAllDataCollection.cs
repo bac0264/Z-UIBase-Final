@@ -31,6 +31,8 @@ public class ShopAllDataCollection : ScriptableObject
     public void SetupAllData()
     {
         shopDict = GetAllVariables();
+        EditorUtility.SetDirty(this);
+        AssetDatabase.SaveAssets();
     }
 
     // This method works only in Editor

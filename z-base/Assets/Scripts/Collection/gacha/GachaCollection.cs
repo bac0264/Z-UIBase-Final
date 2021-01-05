@@ -31,14 +31,6 @@ public class GachaData
     public int rate2;
     public int rate3;
 
-    public Reward[] GetGacha()
-    {
-        var rewards = new List<Reward>();
-        rewards.Add(GetReward());
-
-        return rewards.ToArray();
-    }
-    
     private Reward GetReward()
     {
         var rewards = new List<Reward>();
@@ -60,6 +52,22 @@ public class GachaData
         return Reward.CreateInstanceReward((int) ResourceType.ItemType, id, 1);
     }
     
+    public Reward[] GetGachaFree()
+    {
+        var rewards = new List<Reward>();
+        rewards.Add(GetReward());
+
+        return rewards.ToArray();
+    }
+    
+    public Reward[] GetGacha1()
+    {
+        var rewards = new List<Reward>();
+        rewards.Add(GetReward());
+
+        return rewards.ToArray();
+    }
+
     public Reward[] GetGacha10()
     {
         List<Reward> rewardList = new List<Reward>();

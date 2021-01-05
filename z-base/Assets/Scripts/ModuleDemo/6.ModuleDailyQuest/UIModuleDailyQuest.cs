@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIModuleDailyQuest : MonoBehaviour, IEnhancedScrollerDelegate
+public class UIModuleDailyQuest : AWindowController, IEnhancedScrollerDelegate
 {
     public EnhancedScroller scroller;
 
@@ -15,18 +16,17 @@ public class UIModuleDailyQuest : MonoBehaviour, IEnhancedScrollerDelegate
     private DailyQuestCollection dailyQuestCollection = null;
     private PlayerDailyQuest playerQuest;
 
-    private void Awake()
+    protected override void Awake()
     {
-        PublisherService.Register();
+        base.Awake();
         dailyQuestPrefab = LoadResourceController.GetDailyQuestView();
         playerQuest = DataPlayer.GetModule<PlayerDailyQuest>();
         dailyQuestCollection = LoadResourceController.GetDailyQuestCollection();
     }
-
-    private void Start()
+    
+    protected override void OnPropertiesSet()
     {
         UpdateView();
-        PublisherService.DebugLog();
     }
 
     public void UpdateView()
@@ -54,7 +54,7 @@ public class UIModuleDailyQuest : MonoBehaviour, IEnhancedScrollerDelegate
     {
         PublisherService.NotifyListener(new BaseListenerData((SubjectType) int.Parse(subjectType.text),
             int.Parse(progress.text)));
-         SceneManager.LoadScene("6.DailyQuest");
+        // SceneManager.LoadScene("6.DailyQuest");
     }
 
     #region setup enhance

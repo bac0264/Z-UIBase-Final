@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIIronsourceDemo : MonoBehaviour
+public class UIIronsourceDemo : AWindowController
 {
     [SerializeField] private Text rewardTxt = null;
     

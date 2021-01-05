@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class UIShopRawPackView : MonoBehaviour
+public class RawPackView : MonoBehaviour
 {
     [SerializeField] private Text priceTxt;
     [SerializeField] private Text packNameTxt;

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIModuleItemToolTipView : MonoBehaviour
+public class UIModuleItemToolTipView : AWindowController
 {
     [SerializeField] private UIModuleInventoryItemView itemView = null;
 
@@ -32,8 +33,10 @@ public class UIModuleItemToolTipView : MonoBehaviour
     private PlayerInventory playerInventory;
 
     private int index = 0;
-    private void Awake()
+    
+    protected override void Awake()
     {
+        base.Awake();
         playerMoney = DataPlayer.GetModule<PlayerMoney>();
         playerInventory = DataPlayer.GetModule<PlayerInventory>();
         

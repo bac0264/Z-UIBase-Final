@@ -48,6 +48,11 @@ public class PlayerCharacter
         PlayerPrefs.SetString(KeyUtils.CHARACTER_DATA, JsonConvert.SerializeObject(resourceList));
     }
 
+    /// <summary>
+    /// Unlock a character.
+    /// </summary>
+    /// <param name="resource"></param>
+    /// <returns></returns>
     public bool AddCharacter(CharacterResource resource)
     {
         if (resource == null || inventoryDic.ContainsKey(resource.characterId)) return false;
@@ -70,20 +75,20 @@ public class PlayerCharacter
         return true;
     }
 
-    // public void AddHeroExpWithId(int characterId, long value)
-    // {
-    //     if (inventoryDic.ContainsKey(characterId))
-    //     {
-    //         inventoryDic[characterId].AddExp(value);
-    //     }
-    // }
-    
+    /// <summary>
+    /// Setup current character to play.
+    /// </summary>
+    /// <param name="characterId"></param>
     public void SetCurrentCharacter(int characterId)
     {
         resourceList.currentCharacter = characterId;
         Save();
     }
     
+    /// <summary>
+    /// Get current character
+    /// </summary>
+    /// <returns></returns>
     public CharacterResource GetCurrentCharacter()
     {
         if (inventoryDic.ContainsKey(resourceList.currentCharacter))

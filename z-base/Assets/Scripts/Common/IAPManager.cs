@@ -10,8 +10,6 @@ public class IAPManager : MonoBehaviour, IStoreListener
     private static IStoreController m_StoreController; // The Unity Purchasing system.
     private static IExtensionProvider m_StoreExtensionProvider; // The store-specific Purchasing subsystems.
 
-    private const string buyid25gem = "buyid25gem";
-
     [HideInInspector] public string nameIDproduct;
     public static IAPManager Instance;
 

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIModuleStageCampaign : MonoBehaviour, IEnhancedScrollerDelegate
+public class UIModuleStageCampaign : AWindowController, IEnhancedScrollerDelegate
 {
     public EnhancedScroller scroller;
     
@@ -16,8 +17,10 @@ public class UIModuleStageCampaign : MonoBehaviour, IEnhancedScrollerDelegate
 
     private CampaignConfigCollection campaignCollection = null;
     private PlayerCampaign playerCampaign;
-    private void Awake()
+    
+    protected override void Awake()
     {
+        base.Awake();
         stageViewPrefab = LoadResourceController.GetCampaignStageView();
         playerCampaign = DataPlayer.GetModule<PlayerCampaign>();
         campaignCollection = LoadResourceController.GetCampaignConfigCollection();

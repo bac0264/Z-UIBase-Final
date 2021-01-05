@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using UnityEngine;
 
 
-public class UIModuleDailyRewardView : MonoBehaviour
+public class UIModuleDailyRewardView : AWindowController
 {
     [SerializeField] private Transform viewAnchor;
 
@@ -17,14 +18,16 @@ public class UIModuleDailyRewardView : MonoBehaviour
     private List<Reward> rewardList = new List<Reward>();
 
     private PlayerDailyReward playerDailyReward = null;
-    private void Start()
+    
+    protected override void Awake()
     {
+        base.Awake();
         playerDailyReward = DataPlayer.GetModule<PlayerDailyReward>();
         prefab = LoadResourceController.GetDailyRewardView();
         dailyRewardCollection = LoadResourceController.GetDailyReward();
         TimeManager.Ins.UpdateTime(UpdateView);
     }
-
+    
     public void UpdateView()
     {
         if (timeBarView == null)
@@ -97,6 +100,6 @@ public class UIModuleDailyRewardView : MonoBehaviour
 
         if (rewardList.Count == 0) return;
         
-        WindowManager.Instance.ShowWindowWithData(WindowType.UI_SHOW_REWARD, Reward.FixDuplicateRewards(rewardList));
+        UIFrame.Instance.OpenWindow(WindowIds.UIShowReward, new ShowRewardProperties(rewardList.ToArray()));
     }
 }

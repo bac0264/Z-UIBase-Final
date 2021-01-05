@@ -1,28 +1,40 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using UnityEngine;
 
-public class UIShowReward : BaseWindowGeneric<Reward[]>
+[Serializable]
+public class ShowRewardProperties : WindowProperties
+{
+    public readonly Reward[] rewards;
+
+    public ShowRewardProperties(Reward[] rewards)
+    {
+        this.rewards = rewards;
+    }
+}
+public class UIShowReward : AWindowController <ShowRewardProperties>
 {
     [SerializeField] private Transform rewardAnchor = null;
-    private Reward[] rewards = null;
 
     private IconView prefab = null;
     private List<IconView> iconViews = null;
-    
-    // Set Data into start coroutin to optimize animation
-    public override void SetupData(Reward[] _data1 = default, string message = null,
-        Action noCallBack = null,
-        Action yesCallBack = null)
-    {
-        rewards = _data1;
 
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
+    protected override void OnPropertiesSet()
+    {
         InitOrUpdateView();
     }
 
     private void InitOrUpdateView()
     {
+        var rewards = Properties.rewards;
         if (prefab == null)
             prefab = LoadResourceController.GetIconView();
         

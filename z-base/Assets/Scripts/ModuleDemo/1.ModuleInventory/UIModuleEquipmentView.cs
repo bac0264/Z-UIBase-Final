@@ -22,13 +22,12 @@ public class UIModuleEquipmentView : MonoBehaviour
         }
     }
 
-    public virtual void Start()
+    public virtual void Awake()
     {
         playerInventory = DataPlayer.GetModule<PlayerInventory>();
         playerCharacter = DataPlayer.GetModule<PlayerCharacter>();
         
         SetupEvent();
-        RefreshUI();
     }
 
     public void SetupEvent()
@@ -39,7 +38,7 @@ public class UIModuleEquipmentView : MonoBehaviour
         }
     }
 
-    public void RefreshUI()
+    public void InitOrUpdateView()
     {
         currentCharacter = playerCharacter.GetCurrentCharacter();
         var itemList = playerInventory.GetEquipmentItemWithIdCharacter(currentCharacter.characterId);

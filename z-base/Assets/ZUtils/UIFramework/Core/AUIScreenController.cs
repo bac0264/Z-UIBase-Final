@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 namespace deVoid.UIFramework
 {
@@ -12,6 +13,10 @@ namespace deVoid.UIFramework
     public abstract class AUIScreenController<TProps> : MonoBehaviour, IUIScreenController
         where TProps : IScreenProperties
     {
+        [Header("Button Close")] 
+        [SerializeField]
+        private Button buttonClose;
+        
         [Header("Screen Animations")] 
         [Tooltip("Animation that shows the screen")] 
         [SerializeField]
@@ -104,12 +109,17 @@ namespace deVoid.UIFramework
             ScreenDestroyed = null;
             RemoveListeners();
         }
-
+        
+        public virtual void CloseWindow()
+        {
+            UIFrame.Instance.CloseCurrentWindow();
+        }
         /// <summary>
         /// For setting up all the listeners for events/messages. By default, called on Awake()
         /// </summary>
         protected virtual void AddListeners()
         {
+            buttonClose.onClick.AddListener(CloseWindow);
         }
 
         /// <summary>

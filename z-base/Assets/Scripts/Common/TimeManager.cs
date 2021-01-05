@@ -118,8 +118,8 @@ public class TimeManager : MonoBehaviour
     public void Add1Day()
     {
         timeData.Add1Day();
-        Debug.Log("SceneManager.GetActiveScene().name:" +SceneManager.GetActiveScene().name);
-        SceneManager.LoadScene("6.DailyQuest");
+      //  Debug.Log("SceneManager.GetActiveScene().name:" +SceneManager.GetActiveScene().name);
+      //  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     IEnumerator TimeCountDown()

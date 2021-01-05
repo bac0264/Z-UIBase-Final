@@ -126,14 +126,14 @@ public class LoadResourceController
     #endregion
     
     #region Get Prefabs
-    public static UIShopRawPackView GetRawPackView()
+    public static RawPackView GetRawPackView()
     {
-        return LoadFromResource<UIShopRawPackView>(PathUtils.rawPackView);
+        return LoadFromResource<RawPackView>(PathUtils.rawPackView);
     }
     
-    public static UIShopBundleItemView GetBundleItemView()
+    public static BundleItemView GetBundleItemView()
     {
-        return LoadFromResource<UIShopBundleItemView>(PathUtils.bundleItemView);
+        return LoadFromResource<BundleItemView>(PathUtils.bundleItemView);
     }
     
     public static IconView GetIconView()

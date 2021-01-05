@@ -28,17 +28,35 @@ public class PlayerShop
         }
     }
     
+    /// <summary>
+    /// Add quantity of pack bought.
+    /// </summary>
+    /// <param name="type"> Shop Type</param>
+    /// <param name="idPack"></param>
     public void AddBought(ShopEnum type, int idPack)
     {
         dataShop.AddBought(type, idPack);
         Save();
     }
 
+    /// <summary>
+    /// Get quantity of bought count.
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="idPack"></param>
+    /// <returns></returns>
     public int GetBoughtCount(ShopEnum type, int idPack)
     {
         return dataShop.GetBoughtCount(type, idPack);
 ;    }
 
+    /// <summary>
+    /// Can purchase if true and else.
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="idPack"></param>
+    /// <param name="stock"></param>
+    /// <returns></returns>
     public bool IsAvailableForBuying(ShopEnum type, int idPack, int stock)
     {
         return dataShop.IsAvailableForBuying(type, idPack, stock);

@@ -160,4 +160,9 @@ public class ItemStat
         var localize = (StatType) statType + optionPlus + baseStat.Value;
         return localize;
     }
+
+    public List<StatModifier> GetStatModifiers()
+    {
+        return baseStat.GetStatModifierList();
+    }
 }

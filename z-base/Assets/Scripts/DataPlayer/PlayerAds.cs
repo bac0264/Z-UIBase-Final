@@ -28,12 +28,20 @@ public class PlayerAds
         PlayerPrefs.SetString(KeyUtils.ADS_DATA, JsonConvert.SerializeObject(adsSaveLoad));
     }
 
+    /// <summary>
+    /// Milestone of player ads
+    /// </summary>
+    /// <param name="value"></param>
     public void AddAds(int value)
     {
         adsSaveLoad.adsCount += value;
         Save();
     }
 
+    /// <summary>
+    /// Get Ads Count.
+    /// </summary>
+    /// <returns></returns>
     public int GetAdsCount()
     {
         return adsSaveLoad.adsCount;

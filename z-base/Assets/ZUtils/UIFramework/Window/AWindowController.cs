@@ -3,7 +3,9 @@
     /// <summary>
     /// Base implementation for Window ScreenControllers that need no special Properties
     /// </summary>
-    public abstract class AWindowController : AWindowController<WindowProperties> { }
+    public abstract class AWindowController : AWindowController<WindowProperties>
+    {
+    }
 
     /// <summary>
     /// Base implementation for Window ScreenControllers. Its parameter is a specific type of IWindowProperties.
@@ -49,5 +51,6 @@
         protected override void HierarchyFixOnShow() {
             transform.SetAsLastSibling();
         }
+        
     }
 }

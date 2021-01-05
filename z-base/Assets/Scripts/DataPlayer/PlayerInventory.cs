@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 public class PlayerInventory
 {
-    private PlayerInventorySaveLoad resourceList = new PlayerInventorySaveLoad();
+    private PlayerInventorySaveLoad playerData = new PlayerInventorySaveLoad();
     private Dictionary<int, ItemResource> inventoryDic = new Dictionary<int, ItemResource>();
 
     public PlayerInventory()
@@ -15,33 +15,38 @@ public class PlayerInventory
 
     public void Load()
     {
-        resourceList =
+        playerData =
             JsonConvert.DeserializeObject<PlayerInventorySaveLoad>(PlayerPrefs.GetString(KeyUtils.INVENTORY_DATA));
 
-        if (resourceList == null)
+        if (playerData == null)
         {
-            resourceList = new PlayerInventorySaveLoad();
-            resourceList.inventoryIdMax = 0;
+            playerData = new PlayerInventorySaveLoad();
+            playerData.inventoryIdMax = 0;
             for (int i = 0; i < 6; i++)
             {
                 int id = UnityEngine.Random.Range(1, 5) * GameConstant.ITEM_ID_CONSTANT + UnityEngine.Random.Range(1,5);
-                resourceList.AddNewData(ItemResource.CreateInstance((int) ResourceType.ItemType, id, 1, resourceList.inventoryIdMax, 0));
+                playerData.AddNewData(ItemResource.CreateInstance((int) ResourceType.ItemType, id, 1, playerData.inventoryIdMax, 0));
             }
 
             Save();
         }
 
-        for (int i = 0; i < resourceList.dataList.Count; i++)
+        for (int i = 0; i < playerData.dataList.Count; i++)
         {
-            inventoryDic.Add(resourceList.dataList[i].inventoryId, resourceList.dataList[i]);
+            inventoryDic.Add(playerData.dataList[i].inventoryId, playerData.dataList[i]);
         }
     }
 
     public void Save()
     {
-        PlayerPrefs.SetString(KeyUtils.INVENTORY_DATA, JsonConvert.SerializeObject(resourceList));
+        PlayerPrefs.SetString(KeyUtils.INVENTORY_DATA, JsonConvert.SerializeObject(playerData));
     }
 
+    /// <summary>
+    /// Re-add unequipment items to inventory and not generate new inventory id
+    /// </summary>
+    /// <param name="itemResource"> Equipment Item </param>
+    /// <returns></returns>
     public bool AddItem(ItemResource itemResource)
     {
         if (itemResource == null) return false;
@@ -49,24 +54,34 @@ public class PlayerInventory
         ItemResource resource = itemResource;
         
         inventoryDic.Add(resource.inventoryId, resource);
-        resourceList.AddData(resource);
+        playerData.AddData(resource);
 
         return true;
     }
 
+    /// <summary>
+    /// Add new item with new inventory id
+    /// </summary>
+    /// <param name="itemResource"></param>
+    /// <returns></returns>
     public bool AddNewItem(ItemResource itemResource)
     {
         if (itemResource == null) return false;
 
         ItemResource resource = itemResource;
-        resource.inventoryId = resourceList.inventoryIdMax + 1;
+        resource.inventoryId = playerData.inventoryIdMax + 1;
 
         inventoryDic.Add(resource.inventoryId, resource);
-        resourceList.AddNewData(resource);
+        playerData.AddNewData(resource);
         Save();
         return true;
     }
 
+    /// <summary>
+    /// Remove to sell or remove to equip
+    /// </summary>
+    /// <param name="itemResource"></param>
+    /// <returns></returns>
     public bool RemoveItem(ItemResource itemResource)
     {
         if (itemResource == null) return false;
@@ -74,7 +89,7 @@ public class PlayerInventory
         if (inventoryDic.ContainsKey(itemResource.inventoryId))
         {
             inventoryDic.Remove(itemResource.inventoryId);
-            resourceList.RemoveData(itemResource);
+            playerData.RemoveData(itemResource);
 
             return true;
         }
@@ -82,38 +97,59 @@ public class PlayerInventory
         return false;
     }
 
+    /// <summary>
+    /// Add equipment item to character
+    /// </summary>
+    /// <param name="characterId"> current character id</param>
+    /// <param name="itemResource"></param>
+    /// <returns></returns>
     public bool AddEquipmentItem(int characterId, ItemResource itemResource)
     {
-        var isSuccess = resourceList.AddEquipmentItem(characterId, itemResource);
+        var isSuccess = playerData.AddEquipmentItem(characterId, itemResource);
         return isSuccess;
     }
 
+    /// <summary>
+    /// Unequip item
+    /// </summary>
+    /// <param name="characterId"> Character id need</param>
+    /// <param name="itemResource"></param>
+    /// <returns></returns>
     public bool RemoveEquipmentItem(int characterId, ItemResource itemResource)
     {
-        var isSuccess = resourceList.RemoveEquipmentItem(characterId, itemResource);
+        var isSuccess = playerData.RemoveEquipmentItem(characterId, itemResource);
         return isSuccess;
     }
 
     public ItemResource GetItem(int index)
     {
-        if (resourceList.dataList.Count == 0) return null;
-        if (index < resourceList.dataList.Count)
+        if (playerData.dataList.Count == 0) return null;
+        if (index < playerData.dataList.Count)
         {
-            return resourceList.dataList[index];
+            return playerData.dataList[index];
         }
 
-        index = index % resourceList.dataList.Count;
-        return resourceList.dataList[index];
+        index = index % playerData.dataList.Count;
+        return playerData.dataList[index];
     }
 
+    /// <summary>
+    ///  Get all item
+    /// </summary>
+    /// <returns></returns>
     public List<ItemResource> GetItemResources()
     {
-        return resourceList.dataList;
+        return playerData.dataList;
     }
 
+    /// <summary>
+    /// Get equipment item list of character.
+    /// </summary>
+    /// <param name="characterId"></param>
+    /// <returns></returns>
     public List<ItemResource> GetEquipmentItemWithIdCharacter(int characterId)
     {
-        return resourceList.GetEquipmentItemWithCharacterId(characterId);
+        return playerData.GetEquipmentItemWithCharacterId(characterId);
     }
 }
 
@@ -122,6 +158,7 @@ public class PlayerInventorySaveLoad : DataSave<ItemResource>
 {
     [JsonProperty("1")] public int inventoryIdMax = 0;
 
+    // List equipment item of each character
     [JsonProperty("2")] public List<PlayerEquipment> playerEquipments = new List<PlayerEquipment>();
 
     public void AddNewData(ItemResource t)

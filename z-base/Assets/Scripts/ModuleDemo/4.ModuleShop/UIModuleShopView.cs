@@ -1,24 +1,26 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using UnityEngine;
 
-public class UIModuleShopView : MonoBehaviour
+public class UIModuleShopView : AWindowController
 {
     [SerializeField] private Transform bundleContainer;
     [SerializeField] private Transform rawPackContainer;
 
-    private UIShopRawPackView rawPrefabs = null;
-    private UIShopBundleItemView bundleItemPrefabs = null;
-
-    private List<UIShopRawPackView> rawPacks = new List<UIShopRawPackView>();
-    private List<UIShopBundleItemView> bundleItems = new List<UIShopBundleItemView>();
+    private RawPackView rawPrefabs = null;
+    private BundleItemView bundleItemPrefabs = null;
 
     private ShopBundleCollection shopBundlePack = null;
     private ShopRawPackCollection shopRawPack = null;
+    
+    private List<RawPackView> rawPacks = new List<RawPackView>();
+    private List<BundleItemView> bundleItems = new List<BundleItemView>();
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         shopBundlePack = LoadResourceController.GetShopWithType<ShopBundleCollection>();
         shopRawPack = LoadResourceController.GetShopWithType<ShopRawPackCollection>();
         

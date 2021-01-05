@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class UIShopBundleItemView : MonoBehaviour
+public class BundleItemView : MonoBehaviour
 {
     [SerializeField] private Reward[] rewardDatas = null;
 

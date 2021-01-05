@@ -35,13 +35,25 @@ public class PlayerGacha
     {
         PlayerPrefs.SetString(KeyUtils.GACHA_DATA, JsonConvert.SerializeObject(gachaData));
     }
-
+    
+    /// <summary>
+    /// Set last time gacha free
+    /// </summary>
+    /// <param name="id"> gacha id</param>
+    /// <param name="currentTime"></param>
     public void SetLastTimeGacha1Free(int id, long currentTime)
     {
         gachaData.lastTimeGacha1Dict[id] = currentTime;
         Save();
     }
 
+    /// <summary>
+    ///  Take time left of Gacha
+    /// </summary>
+    /// <param name="id"> gacha id</param>
+    /// <param name="timeConfig"> duration to get gacha</param>
+    /// <param name="currentTime"> </param>
+    /// <returns></returns>
     public long GetRangeTime(int id, long timeConfig, long currentTime)
     {
         if (gachaData.lastTimeGacha1Dict[id] < 1000) return 0;

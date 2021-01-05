@@ -18,7 +18,7 @@ public class SelectWorldWindowController : AWindowController <SelectWorldPropert
 {
     [SerializeField] private Text number;
     
-    public void CloseWindow()
+    public override void CloseWindow()
     {
         UIFrame.Instance.CloseCurrentWindow();
     }

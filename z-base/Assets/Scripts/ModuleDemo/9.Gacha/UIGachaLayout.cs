@@ -58,7 +58,7 @@ public class UIGachaLayout : MonoBehaviour
         var canGacha10 = gachaData != null && playerMoney.IsEnoughMoney(gachaData.GetRequireGacha1().GetResource());
         if (canGacha10)
         {
-            OnSuccess(gachaData.GetGacha());
+            OnSuccess(gachaData.GetGacha1());
         }
     }
 
@@ -74,7 +74,7 @@ public class UIGachaLayout : MonoBehaviour
     public void OnClickFreeGacha()
     {
         playerGacha.SetLastTimeGacha1Free(gachaData.id, TimeManager.Ins.currentTime.TotalSecondTimeStamp());
-        OnSuccess(gachaData.GetGacha());
+        OnSuccess(gachaData.GetGachaFree());
     }
     
     private void OnSuccess(Reward[] rewards)

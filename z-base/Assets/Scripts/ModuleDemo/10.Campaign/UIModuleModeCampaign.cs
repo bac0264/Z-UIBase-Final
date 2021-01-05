@@ -1,32 +1,33 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using EnhancedScrollerDemos.MultipleCellTypesDemo;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIModuleModeCampaign : MonoBehaviour
+public class UIModuleModeCampaign : AWindowController
 {
     [SerializeField] private Transform campaignViewAnchor;
     [SerializeField] private Snap snap;
-    
+
     [SerializeField] private Transform buttonGo;
     [SerializeField] private Transform buttonLock;
-    
+
     private CampaignConfigCollection collection = null;
-    
+
     private List<CampaignModeView> campaignViews = new List<CampaignModeView>();
     private CampaignModeView prefab = null;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         collection = LoadResourceController.GetCampaignConfigCollection();
         prefab = LoadResourceController.GetCampaignModeView();
 
-        
         InitOrUpdateView();
-        
     }
 
     private void InitOrUpdateView()
@@ -46,6 +47,7 @@ public class UIModuleModeCampaign : MonoBehaviour
                 snap.AddRectTransform(view.GetComponent<RectTransform>());
             }
         }
+
         snap.SetupSnap(RefreshUI);
     }
 
@@ -66,7 +68,7 @@ public class UIModuleModeCampaign : MonoBehaviour
         var modeIndex = snap.GetIndex() + 1;
 
         var mode = collection.GetModeCampaignWithId(modeIndex);
-        
+
         if (mode == null)
         {
             Debug.Log("comming soon");
@@ -74,7 +76,7 @@ public class UIModuleModeCampaign : MonoBehaviour
             buttonLock.gameObject.SetActive(true);
             return;
         }
-        
+
         var state = mode.GetStateWithModeId();
 
         if (state == ModeState.Completed || state == ModeState.Opening)
@@ -82,7 +84,7 @@ public class UIModuleModeCampaign : MonoBehaviour
             buttonGo.gameObject.SetActive(true);
             buttonLock.gameObject.SetActive(false);
         }
-        else 
+        else
         {
             buttonGo.gameObject.SetActive(false);
             buttonLock.gameObject.SetActive(true);
