@@ -13,14 +13,17 @@ public class SoundAndMusicView : MonoBehaviour
     [SerializeField] private Text musicText;
     
     private PlayerSetting playerSetting;
-    
+
+    private void Awake()
+    {
+        soundBtn.onClick.AddListener(OnClickSound);
+        musicBtn.onClick.AddListener(OnClickMusic);
+    }
+
     public void InitOrUpdateView()
     {
         playerSetting = DataPlayer.GetModule<PlayerSetting>();
         
-        soundBtn.onClick.AddListener(OnClickSound);
-        musicBtn.onClick.AddListener(OnClickMusic);
-
         UpdateView();
     }
 
@@ -44,11 +47,15 @@ public class SoundAndMusicView : MonoBehaviour
     {
         playerSetting.SetOpenMusic();
         UpdateMusicView();
+        
+        MusicManager.instance.SetAudioActive();
     }
 
     private void OnClickSound()
     {
         playerSetting.SetOpenSound();
         UpdateSoundView();
+        
+        SoundManager.instance.SetAudioActive();
     }
 }

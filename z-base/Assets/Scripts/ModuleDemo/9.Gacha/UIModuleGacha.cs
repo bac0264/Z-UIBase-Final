@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using UnityEngine;
 
-public class UIModuleGacha : MonoBehaviour
+public class UIModuleGacha : AWindowController
 {
     [SerializeField] private Transform gachaAnchor;
     [SerializeField] private UIGachaLayout layout;
@@ -14,10 +15,15 @@ public class UIModuleGacha : MonoBehaviour
     private GachaData currentGacha = null;
 
     private GachaCollection collection;
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         collection = LoadResourceController.GetGachaConfigCollection();
         prefab = LoadResourceController.GetGachaTab();
+    }
+
+    protected override void OnPropertiesSet()
+    {
         InitOrUpdateView();
     }
 

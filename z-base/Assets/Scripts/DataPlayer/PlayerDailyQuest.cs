@@ -19,7 +19,6 @@ public class PlayerDailyQuest
     
     private void Load()
     {
-        Debug.Log(PlayerPrefs.GetString(KeyUtils.QUEST_DATA));
         playerQuestData =
             JsonConvert.DeserializeObject<PlayerDailyQuestData>(PlayerPrefs.GetString(KeyUtils.QUEST_DATA));
         

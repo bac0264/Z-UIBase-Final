@@ -6,6 +6,8 @@ public class PathUtils
 {
     public const string windowPath = "Windows/{0}";
     
+    // icon
+    
     public const string iconItems= "IconItems/{0}";
     public const string iconFrames = "IconFrames/{0}";
     public const string iconCharacters = "IconCharacters/{0}";
@@ -18,6 +20,8 @@ public class PathUtils
     public const string iconCampaignMode = "IconCampaignMode/{0}";
     public const string iconCampaignMap = "IconCampaignMap/{0}";
     public const string backgroundGacha = "BackgroundGacha/{0}";
+    
+    // view
     
     public const string rawPackView = "Prefabs/raw_pack_view";
     public const string bundleItemView = "Prefabs/bundle_item_view";
@@ -32,6 +36,14 @@ public class PathUtils
     public const string campaignStageView = "Prefabs/campaign_stage_view";
     public const string dailyQuestView = "Prefabs/daily_quest_view";
     public const string languageSubView = "Prefabs/language_sub_view";
+    
+    // sound & music
+    
+    public const string soundUIPath = "Audio/SoundUI/{0}";
+    public const string soundGamePlayPath = "Audio/SoundGamePlay/{0}";
+    public const string musicPath = "Audio/Music/{0}";
+    
+    // csv
     
     public const string defineCollection = "Collection/define_collection";
     public const string shopRawPack = "Collection/shop/shop_raw_pack";
@@ -50,4 +62,8 @@ public class PathUtils
     public const string campaignConfig = "Collection/campaign/campaign_config";
     public const string campaignRequireConfig = "Collection/campaign/campaign_require_config";
     public const string dailyQuestConfig = "Collection/daily_quest/daily_quest";
+    
+    
+    
 }
+

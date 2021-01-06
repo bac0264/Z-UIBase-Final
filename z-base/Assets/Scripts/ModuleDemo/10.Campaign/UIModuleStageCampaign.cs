@@ -3,10 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using deVoid.UIFramework;
 using EnhancedUI.EnhancedScroller;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class UIModuleStageCampaign : AWindowController, IEnhancedScrollerDelegate
+public class UIModuleStageCampaign : AWindowController<CampaignMapConfig>, IEnhancedScrollerDelegate
 {
     public EnhancedScroller scroller;
     
@@ -21,18 +19,19 @@ public class UIModuleStageCampaign : AWindowController, IEnhancedScrollerDelegat
     protected override void Awake()
     {
         base.Awake();
+        scroller.Delegate = this;
         stageViewPrefab = LoadResourceController.GetCampaignStageView();
         playerCampaign = DataPlayer.GetModule<PlayerCampaign>();
         campaignCollection = LoadResourceController.GetCampaignConfigCollection();
-        mapConfig = campaignCollection.GetMapCampaignConfigWithStageId(playerCampaign.GetLastStagePass());
     }
 
-    private void Start()
+    protected override void OnPropertiesSet()
     {
-        UpdateView(mapConfig);
+        mapConfig = Properties;
+        InitOrUpdateView(mapConfig);
     }
 
-    public void UpdateView(CampaignMapConfig mapConfig)
+    public void InitOrUpdateView(CampaignMapConfig mapConfig)
     {
         this.mapConfig = mapConfig;
         
@@ -42,11 +41,9 @@ public class UIModuleStageCampaign : AWindowController, IEnhancedScrollerDelegat
     private void LoadData()
     {
         _data = mapConfig.stageList;
-        scroller.Delegate = this;
         scroller.ReloadData();
         scroller.JumpToDataIndex(CampaignStageData.GetStageIndex(playerCampaign.GetLastStagePass()) - 1);
     }
-    
     
     public void SetNextLevel()
     {
@@ -56,12 +53,14 @@ public class UIModuleStageCampaign : AWindowController, IEnhancedScrollerDelegat
             DataPlayer.GetModule<PlayerCampaign>().SetLastStagePass(dataNextLevel.stage);
         }
 
-        SceneManager.LoadScene("10.Stage");
+        UIFrame.Instance.OpenWindow(WindowIds.StageCampaign);
     }
     
     public void OnClickMap()
     {
-        SceneManager.LoadScene("10.Mode");
+        CloseWindow();
+        
+        UIFrame.Instance.OpenWindow(WindowIds.ModeCampaign);
     }
     
     #region enhance

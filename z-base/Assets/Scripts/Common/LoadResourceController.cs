@@ -276,4 +276,28 @@ public class LoadResourceController
         return (T) shopAllData.GetShopWithType(typeof(T));
     }
     #endregion
+    
+    #region sound & music
+
+    public static AudioClip GetSoundUI(SoundUI soundType)
+    {
+        var path = string.Format(PathUtils.soundUIPath, soundType.ToString().ToLower());
+        // Debug.Log("path: "+path);
+        return  LoadFromResource<AudioClip>(path);
+    }
+    
+    public static AudioClip GetSoundGamePlay(SoundGamePlay soundGamePlay)
+    {
+        var path = string.Format(PathUtils.soundGamePlayPath, soundGamePlay.ToString().ToLower());
+        // Debug.Log("path: "+path);
+        return  LoadFromResource<AudioClip>(path);
+    }
+    
+    public static AudioClip GetMusic(MusicType musicType)
+    {
+        var path = string.Format(PathUtils.musicPath, musicType.ToString().ToLower());
+        // Debug.Log("path: "+path);
+        return  LoadFromResource<AudioClip>(path);
+    }
+    #endregion
 }

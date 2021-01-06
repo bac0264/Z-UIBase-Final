@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using deVoid.UIFramework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIModuleMapCampaign : AWindowController
+
+public class UIModuleMapCampaign : AWindowController<CampaignModeConfig>
 {
     [SerializeField] private Transform mapViewAnchor;
     [SerializeField] private Snap snap;
@@ -20,16 +19,20 @@ public class UIModuleMapCampaign : AWindowController
     protected override void Awake()
     {
         base.Awake();
-        mode = LoadResourceController.GetCampaignConfigCollection()
-            .GetModeCampaignWithId(DataPlayer.GetModule<PlayerCampaign>().GetModePick());
-        InitOrUpdateView(mode);
+        // mode = LoadResourceController.GetCampaignConfigCollection()
+        //     .GetModeCampaignWithId(DataPlayer.GetModule<PlayerCampaign>().GetModePick());
+        // InitOrUpdateView(mode);
+        prefab = LoadResourceController.GetCampaignMapView();
     }
 
-    public void InitOrUpdateView(CampaignModeConfig mode)
+    protected override void OnPropertiesSet()
     {
-        this.mode = mode;
-        if (prefab == null) prefab = LoadResourceController.GetCampaignMapView();
+        mode = Properties;
+        InitOrUpdateView();
+    }
 
+    public void InitOrUpdateView()
+    {
         int i = 0;
         for (; i < mode.mapList.Count; i++)
         {
@@ -52,13 +55,11 @@ public class UIModuleMapCampaign : AWindowController
     public void OnClickGo()
     {
         var mapId = snap.GetIndex() + 1;
-
         var map = mode.GetMapWithId(mapId);
-
-        // stageCampaign.gameObject.SetActive(true);
-        // stageCampaign.UpdateView(map);
-        SceneManager.LoadScene("10.Stage");
-        gameObject.SetActive(false);
+        
+        CloseWindow();
+        
+        UIFrame.Instance.OpenWindow(WindowIds.StageCampaign, map);
     }
 
     public void RefreshUI()

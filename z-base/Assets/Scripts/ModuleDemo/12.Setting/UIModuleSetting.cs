@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using UnityEngine;
 
-public class UIModuleSetting : MonoBehaviour
+public class UIModuleSetting : AWindowController
 {
     public SoundAndMusicView soundAndMusicView;
     public LanguageView languageView;
-    public void Awake()
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
+    protected override void OnPropertiesSet()
     {
         soundAndMusicView.InitOrUpdateView();
         languageView.InitOrUpdateView();

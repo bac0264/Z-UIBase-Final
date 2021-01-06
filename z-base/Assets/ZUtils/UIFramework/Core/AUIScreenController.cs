@@ -180,6 +180,7 @@ namespace deVoid.UIFramework
         /// <param name="props">The data for the screen.</param>
         public void Show(IScreenProperties props = null)
         {
+            buttonClose.interactable = false;
             if (props != null)
             {
                 if (props is TProps screenProperties)
@@ -228,7 +229,7 @@ namespace deVoid.UIFramework
         private void OnTransitionInFinished()
         {
             IsVisible = true;
-
+            buttonClose.interactable = true;
             InTransitionFinished?.Invoke(this);
         }
 

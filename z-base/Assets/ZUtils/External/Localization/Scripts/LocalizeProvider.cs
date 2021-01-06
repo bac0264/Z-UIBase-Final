@@ -73,7 +73,7 @@ namespace Zitga.Localization
             catch (Exception e)
             {
                 Debug.Log($"Key is not exist: {category}-{key} {e}");
-                return string.Empty;
+                return $"#{category}-{key}";
             }
         }
 

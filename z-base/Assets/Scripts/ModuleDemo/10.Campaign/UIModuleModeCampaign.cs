@@ -2,10 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using deVoid.UIFramework;
-using EnhancedScrollerDemos.MultipleCellTypesDemo;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class UIModuleModeCampaign : AWindowController
 {
@@ -54,13 +51,13 @@ public class UIModuleModeCampaign : AWindowController
     public void OnClickGo()
     {
         var modeIndex = snap.GetIndex() + 1;
-
-        var mode = collection.GetModeCampaignWithId(modeIndex);
         DataPlayer.GetModule<PlayerCampaign>().SetModePick(modeIndex);
-        SceneManager.LoadScene("10.Map");
-        // uiModuleCampaign.InitOrUpdateView(mode);
-        // uiModuleCampaign.gameObject.SetActive(true);
-        gameObject.SetActive(false);
+        
+        CloseWindow();
+        
+        var mode = collection.GetModeCampaignWithId(modeIndex);
+        UIFrame.Instance.OpenWindow(WindowIds.MapCampaign, mode);
+        
     }
 
     public void RefreshUI()

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using UnityEngine;
 
 
@@ -188,7 +189,7 @@ public enum ModeState
 }
 
 [System.Serializable]
-public class CampaignModeConfig
+public class CampaignModeConfig : WindowProperties
 {
     public int modeId;
     public List<CampaignMapConfig> mapList = new List<CampaignMapConfig>();
@@ -254,7 +255,7 @@ public enum MapState
 }
 
 [System.Serializable]
-public class CampaignMapConfig
+public class CampaignMapConfig : WindowProperties
 {
     public int mapId;
     public List<CampaignStageData> stageList = new List<CampaignStageData>();

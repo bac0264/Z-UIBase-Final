@@ -16,13 +16,15 @@ public class LanguageView : MonoBehaviour, IEnhancedScrollerDelegate
     [SerializeField] private Button languageBtn;
     [SerializeField] private Text currentLanguageTxt;
 
-    public void InitOrUpdateView()
+    private void Awake()
     {
         scroller.Delegate = this;
-        
         prefab = LoadResourceController.GetLanguageSubView();
         languageBtn.onClick.AddListener(OnClickPickLanguage);
-        
+    }
+
+    public void InitOrUpdateView()
+    {
         OnClickLanguage();
         LoadData();
     }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using EnhancedUI.EnhancedScroller;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zitga.Localization;
 
@@ -32,5 +33,7 @@ public class LanguageSubView : EnhancedScrollerCellView
         DataPlayer.GetModule<PlayerSetting>().SetLanguage(id);
         
         updateCurrentLanguage?.Invoke();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
