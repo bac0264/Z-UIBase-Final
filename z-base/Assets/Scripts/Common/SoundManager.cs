@@ -9,6 +9,8 @@ public enum SoundUI
     NONE = -1,
     SFX_UI_BACK = 0,
     SFX_UI_SELECT = 1,
+    SFX_UI_POPUP_CLOSE = 2,
+    SFX_UI_POPUP_OPEN = 3,
 }
 
 public enum SoundGamePlay

@@ -109,11 +109,7 @@ namespace deVoid.UIFramework
             ScreenDestroyed = null;
             RemoveListeners();
         }
-        
-        public virtual void CloseWindow()
-        {
-            UIFrame.Instance.CloseCurrentWindow();
-        }
+
         /// <summary>
         /// For setting up all the listeners for events/messages. By default, called on Awake()
         /// </summary>
@@ -174,12 +170,29 @@ namespace deVoid.UIFramework
             WhileHiding();
         }
 
+        
+        public virtual void OnSoundClose()
+        {
+            SoundManager.instance.OnPlaySoundUI(SoundUI.SFX_UI_POPUP_CLOSE);
+        }
+
+        public virtual void OnSoundOpen()
+        {
+            SoundManager.instance.OnPlaySoundUI(SoundUI.SFX_UI_POPUP_OPEN);
+        }
+        public virtual void CloseWindow()
+        {
+            OnSoundClose();
+            UIFrame.Instance.CloseCurrentWindow();
+        }
+        
         /// <summary>
         /// Show this screen with the specified properties.
         /// </summary>
         /// <param name="props">The data for the screen.</param>
         public void Show(IScreenProperties props = null)
         {
+            OnSoundOpen();
             buttonClose.interactable = false;
             if (props != null)
             {
