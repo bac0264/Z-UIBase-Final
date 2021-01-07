@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Purchasing;
-using UnityEngine.UI;
 using System;
 
 public class IAPManager : MonoBehaviour, IStoreListener

@@ -2,9 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using EnhancedScrollerDemos.NestedScrollers;
 using EnhancedUI.EnhancedScroller;
 
 public class UIModuleInventoryView : MonoBehaviour, IEnhancedScrollerDelegate

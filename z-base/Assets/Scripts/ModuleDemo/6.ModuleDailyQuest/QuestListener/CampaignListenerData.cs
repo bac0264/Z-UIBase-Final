@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class CampaignListenerData : BaseListenerData
+﻿public class CampaignListenerData : BaseListenerData
 {
     public CampaignListenerData(object obj) : base(obj)
     {

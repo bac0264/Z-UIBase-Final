@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class GachaProgress : QuestProgress
+﻿public class GachaProgress : QuestProgress
 {
     public GachaProgress(BaseQuestData data, long progress = 0, int state = 0) : base(data, progress, state)
     {

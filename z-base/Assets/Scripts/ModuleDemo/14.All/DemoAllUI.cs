@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using deVoid.UIFramework;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using Zitga.ContextSystem;
 using Zitga.Localization;
-using Zitga.Sound;
 using Zitga.Update;
 
 public class DemoAllUI : MonoBehaviour

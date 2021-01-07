@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using deVoid.UIFramework;
+﻿using deVoid.UIFramework;
 using UnityEngine;
 
 public class UIModuleInventoryHandle : AWindowController

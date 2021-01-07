@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
@@ -44,11 +43,7 @@ public class PlayerInventory
         Debug.Log("inventory");
         PlayerPrefs.SetString(KeyUtils.INVENTORY_DATA, JsonConvert.SerializeObject(playerData));
     }
-
-    public void DebugLog()
-    {
-        Debug.Log(JsonConvert.SerializeObject(playerData));
-    }
+    
     
     /// <summary>
     /// Re-add unequipment items to inventory and not generate new inventory id

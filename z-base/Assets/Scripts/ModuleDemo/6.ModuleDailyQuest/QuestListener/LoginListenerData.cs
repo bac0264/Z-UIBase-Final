@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class LoginListenerData : BaseListenerData
+﻿public class LoginListenerData : BaseListenerData
 {
     public LoginListenerData(object obj) : base(obj)
     {

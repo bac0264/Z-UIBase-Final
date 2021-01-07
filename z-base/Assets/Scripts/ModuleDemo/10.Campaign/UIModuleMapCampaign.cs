@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using deVoid.UIFramework;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 public class UIModuleMapCampaign : AWindowController<CampaignModeConfig>

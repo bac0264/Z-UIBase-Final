@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using deVoid.UIFramework;
+﻿using deVoid.UIFramework;
 using EnhancedUI.EnhancedScroller;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIModuleDailyQuest : AWindowController, IEnhancedScrollerDelegate

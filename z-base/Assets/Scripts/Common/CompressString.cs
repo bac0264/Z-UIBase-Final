@@ -2,7 +2,6 @@
 using System.IO;
 using System;
 using System.IO.Compression;
-using UnityEngine;
 
 namespace CompressString
 {

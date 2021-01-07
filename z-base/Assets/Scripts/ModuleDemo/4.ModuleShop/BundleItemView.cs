@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using deVoid.UIFramework;
+﻿using deVoid.UIFramework;
 using UnityEngine;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
 public class BundleItemView : MonoBehaviour
 {

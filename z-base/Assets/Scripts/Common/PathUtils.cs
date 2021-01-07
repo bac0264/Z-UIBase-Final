@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PathUtils
+﻿public class PathUtils
 {
     public const string windowPath = "Windows/{0}";
     

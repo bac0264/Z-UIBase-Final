@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Globalization;
-using System.Net;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
 
 public class TimeManager : MonoBehaviour
 {

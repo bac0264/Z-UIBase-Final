@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using deVoid.UIFramework;
 using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 using UnityEngine.UI;
-using Zitga.Localization;
-using Zitga.Localization.Tutorials;
 
 public class DailyQuestView : EnhancedScrollerCellView
 {
