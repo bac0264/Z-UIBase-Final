@@ -12,6 +12,7 @@ public class UIModuleInventoryHandle : AWindowController
 
     private PlayerInventory playerInventory = null;
     private PlayerCharacter playerCharacter = null;
+
     protected override void Awake()
     {
         base.Awake();
@@ -35,7 +36,10 @@ public class UIModuleInventoryHandle : AWindowController
 
     private void Unequip(ItemResource item)
     {
-        if (equipmentView.RemoveToUnequip(item, ()=>inventoryView.ReloadData()))
+        var inventoryId = 0;
+        if (item != null)
+            inventoryId = item.inventoryId;
+        if (equipmentView.RemoveToUnequip(item, () => inventoryView.ReloadDataWithInventoryId(inventoryId)))
         {
             characterInfoView.UpdateCharacterView();
             playerInventory.Save();
@@ -44,8 +48,7 @@ public class UIModuleInventoryHandle : AWindowController
 
     private void Equip(ItemResource item)
     {
-        var inventoryId = item.inventoryId;
-        if (equipmentView.AddToEquip(item, () => inventoryView.ReloadDataWithInventoryId(inventoryId)))
+        if (equipmentView.AddToEquip(item, () => inventoryView.ReloadData()))
         {
             characterInfoView.UpdateCharacterView();
             playerInventory.Save();

@@ -58,7 +58,7 @@ public class UIModuleDailyRewardView : AWindowController
 
     private void UpdateTimeView(int nextDay, long currentTime, bool completed)
     {
-        StartCoroutine(_updateTimeView(nextDay, currentTime, completed));
+        CoroutineManager.instance.StartCoroutine(_updateTimeView(nextDay, currentTime, completed));
     }
 
     IEnumerator _updateTimeView(int nextDay, long currentTime, bool completed)

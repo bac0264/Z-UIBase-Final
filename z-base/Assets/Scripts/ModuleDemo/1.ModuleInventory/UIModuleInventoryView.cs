@@ -58,7 +58,7 @@ public class UIModuleInventoryView : MonoBehaviour, IEnhancedScrollerDelegate
 
         // tell the scroller to reload now that we have the data
         masterScroller.GetComponent<ScrollRect>().verticalNormalizedPosition = 0;
-        Invoke("_InitData", 0.1f);
+        CoroutineManager.instance.StartCoroutine(_InitData());
     }
 
     private void UpdateData()
@@ -90,7 +90,7 @@ public class UIModuleInventoryView : MonoBehaviour, IEnhancedScrollerDelegate
 
     public void ReloadData()
     {
-        StartCoroutine(_ReloadDataWithUpdate());
+        CoroutineManager.instance.StartCoroutine(_ReloadDataWithUpdate());
     }
 
     IEnumerator _ReloadDataWithUpdate()
@@ -101,14 +101,16 @@ public class UIModuleInventoryView : MonoBehaviour, IEnhancedScrollerDelegate
         masterScroller.ReloadData();
     }
 
-    void _InitData()
+    IEnumerator _InitData()
     {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
         masterScroller.ReloadData();
     }
-
+    
     public void ReloadDataWithInventoryId(int inventoryId)
     {
-        StartCoroutine(_ReloadDataAndJumping(inventoryId));
+        CoroutineManager.instance.StartCoroutine(_ReloadDataAndJumping(inventoryId));
     }
 
     IEnumerator _ReloadDataAndJumping(int inventoryId)
