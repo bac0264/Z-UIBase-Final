@@ -25,9 +25,13 @@ public class UIModuleDailyRewardView : AWindowController
         playerDailyReward = DataPlayer.GetModule<PlayerDailyReward>();
         prefab = LoadResourceController.GetDailyRewardView();
         dailyRewardCollection = LoadResourceController.GetDailyReward();
+    }
+
+    protected override void OnPropertiesSet()
+    {
         TimeManager.Ins.UpdateTime(UpdateView);
     }
-    
+
     public void UpdateView()
     {
         if (timeBarView == null)
@@ -101,5 +105,10 @@ public class UIModuleDailyRewardView : AWindowController
         if (rewardList.Count == 0) return;
         
         UIFrame.Instance.OpenWindow(WindowIds.UIShowReward, new ShowRewardProperties(rewardList.ToArray()));
+    }
+
+    public void Add1Day()
+    {
+        TimeManager.Ins.Add1Day();
     }
 }

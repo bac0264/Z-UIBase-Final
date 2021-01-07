@@ -11,6 +11,7 @@ public class PlayerGachaSaveLoad
 }
 public class PlayerGacha
 {
+    [JsonProperty("player_gacha")]
     private PlayerGachaSaveLoad gachaData;
 
     public PlayerGacha()

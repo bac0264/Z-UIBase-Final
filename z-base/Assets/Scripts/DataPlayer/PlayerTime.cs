@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerTime
 {
+    [JsonProperty("player_time")]
     public PlayerTimeData timeData;
 
     public PlayerTime()
@@ -25,6 +26,7 @@ public class PlayerTime
 
     public void Save()
     {
+        Debug.Log("time");
         PlayerPrefs.SetString(KeyUtils.TIME_DATA, JsonConvert.SerializeObject(timeData));
     }
 

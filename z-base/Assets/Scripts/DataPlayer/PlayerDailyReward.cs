@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerDailyReward
 {
+    [JsonProperty("player_daily_reward")]
     private DailyRewardSaveLoad dailyReward;
 
     private int DAY_MAX;

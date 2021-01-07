@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -82,8 +83,8 @@ public class BundleItemView : MonoBehaviour
         {
             rewardDatas[i].RecieveReward();
         }
-        Debug.Log(rewardDatas.Length);
-        WindowManager.Instance.ShowWindowWithData(WindowType.UI_SHOW_REWARD, rewardDatas);
+
+        UIFrame.Instance.OpenWindow(WindowIds.UIShowReward, new ShowRewardProperties(rewardDatas));
         RefreshUI();
     }
 }

@@ -1,14 +1,25 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using deVoid.UIFramework;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIModuleResultCampaign : BaseWindowGeneric<Reward[]>
+[System.Serializable]
+public class BattleResultProperties : WindowProperties
+{
+    public bool isWin;
+    public int stagePlay;
+
+    public BattleResultProperties(bool isWin, int stagePlay) 
+    {
+        this.isWin = isWin;
+        this.stagePlay = stagePlay;
+    }
+}
+
+public class UIModuleResultCampaign : AWindowController<BattleResultProperties>
 {
     [SerializeField] private Text resultText;
-    
+
     [SerializeField] private Button adsBtn;
 
     [SerializeField] private Transform rewardAnchor;
@@ -19,68 +30,59 @@ public class UIModuleResultCampaign : BaseWindowGeneric<Reward[]>
     private Reward[] rewards;
     private PlayerAds playerAds;
     private AdsConfigCollection adsConfig;
-    public override void Awake()
+    private CampaignConfigCollection campaignConfig;
+
+    protected override void Awake()
     {
         base.Awake();
-        
+
         adsConfig = LoadResourceController.GetAdsConfigCollection();
+        campaignConfig = LoadResourceController.GetCampaignConfigCollection();
         playerAds = DataPlayer.GetModule<PlayerAds>();
         prefab = LoadResourceController.GetIconView();
 
         InitButtons();
-        CheckWinLose();
     }
 
-    public override void OnHide()
+    private void UpdateData()
     {
-        OnClickHome();
-    }
-
-    private void CheckWinLose()
-    {
-        bool isWin = UnityEngine.Random.Range(0, 2) % 2 == 1;
-        var message = isWin ? "Victory" : "Lose";
-
-        if (isWin)
+        if (Properties.isWin)
         {
             var stage = DataPlayer.GetModule<PlayerCampaign>().GetLastStagePass();
+            if (Properties.stagePlay == stage)
             {
-                var dataNextLevel = LoadResourceController.GetCampaignConfigCollection()
-                    .GetNextStage(stage);
+                var dataNextLevel = campaignConfig.GetNextStage(stage);
                 if (dataNextLevel != null)
-                {
                     DataPlayer.GetModule<PlayerCampaign>().SetLastStagePass(dataNextLevel.stage);
-                    SetupData(dataNextLevel.rewards, message);
-                }
             }
         }
-        else
-        {
-            SetupData(null, message);
-        }
     }
+
     private void InitButtons()
     {
         adsBtn.onClick.AddListener(OnClickAds);
     }
-    
-    public override void SetupData(Reward[] _data1 = default, string message = null, Action noCallBack = null,
-        Action yesCallBack = null)
+
+    protected override void OnPropertiesSet()
     {
-        rewards = _data1;
-        
+        rewards = campaignConfig.GetStageCampaignWithStageId(Properties.stagePlay).rewards;
+
+        var message = Properties.isWin ? "Victory" : "Lose";
+
         resultText.text = message;
         rewardAnchor.gameObject.SetActive(resultText.text.Equals("Victory"));
-        
-        InitOrUpdateView();
-    }
 
+        InitOrUpdateView();
+
+        UpdateData();
+    }
+    
     private void InitOrUpdateView()
     {
         int i = 0;
-        
+
         if (rewards == null) return;
-        
+
         for (; i < rewards.Length; i++)
         {
             if (i < iconViews.Count)
@@ -101,19 +103,14 @@ public class UIModuleResultCampaign : BaseWindowGeneric<Reward[]>
             iconViews[i].gameObject.SetActive(false);
         }
     }
-    
 
-    private void OnClickHome()
-    {
-        SceneManager.LoadScene("10.Stage");
-    }
 
     private void OnClickAds()
     {
         void onSuccess()
         {
             var adsData = adsConfig.GetAdsConfigData(playerAds.GetAdsCount());
-            WindowManager.Instance.ShowWindowWithData<Reward[]>(WindowType.UI_SHOW_REWARD, adsData.Rewards);
+            UIFrame.Instance.OpenWindow(WindowIds.UIShowReward, new ShowRewardProperties(adsData.Rewards));
             playerAds.AddAds(1);
         }
 

@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public sealed class WindowIds
+﻿public sealed class WindowIds
 {
     public static string UIShowReward = "Windows/ui_show_reward";
     public static string HomeWindow = "Windows/home_window";
@@ -17,5 +13,6 @@ public sealed class WindowIds
     public static string ModeCampaign = "Windows/ui_mode_campaign";
     public static string MapCampaign = "Windows/ui_map_campaign";
     public static string Setting = "Windows/ui_setting";
-    public static string GiftCode = "Windows/ui_setting";
+    public static string GiftCode = "Windows/ui_gift_code";
+    public static string BattleResultCampaign = "Windows/ui_battle_result_campaign";
 }

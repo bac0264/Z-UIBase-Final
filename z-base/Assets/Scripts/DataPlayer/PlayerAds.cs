@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerAds
 {
+    [JsonProperty("player_ads")]
     private PlayerAdsSaveLoad adsSaveLoad;
 
     public PlayerAds()

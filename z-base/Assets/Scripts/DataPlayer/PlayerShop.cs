@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerShop
 {
+    [JsonProperty("player_shop")]
     private DataSaveShop dataShop;
 
     public PlayerShop()
@@ -15,6 +16,7 @@ public class PlayerShop
     
     public void Save()
     {
+        Debug.Log("shop");
         PlayerPrefs.SetString(KeyUtils.SHOP_DATA, JsonConvert.SerializeObject(dataShop));
     }
 

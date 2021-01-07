@@ -5,7 +5,9 @@ using Newtonsoft.Json;
 
 public class PlayerInventory
 {
+    [JsonProperty("player_inventory")]
     private PlayerInventorySaveLoad playerData = new PlayerInventorySaveLoad();
+    
     private Dictionary<int, ItemResource> inventoryDic = new Dictionary<int, ItemResource>();
 
     public PlayerInventory()
@@ -39,9 +41,15 @@ public class PlayerInventory
 
     public void Save()
     {
+        Debug.Log("inventory");
         PlayerPrefs.SetString(KeyUtils.INVENTORY_DATA, JsonConvert.SerializeObject(playerData));
     }
 
+    public void DebugLog()
+    {
+        Debug.Log(JsonConvert.SerializeObject(playerData));
+    }
+    
     /// <summary>
     /// Re-add unequipment items to inventory and not generate new inventory id
     /// </summary>

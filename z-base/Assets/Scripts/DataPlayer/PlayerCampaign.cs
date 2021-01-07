@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using UnityEngine;
 
 public class PlayerCampaign
 {
+    [JsonProperty("player_campaign")]
     private PlayerCampaignSaveLoad dataCampaign;
 
     public PlayerCampaign()
@@ -26,7 +25,6 @@ public class PlayerCampaign
             {
                 currentStage = 101001,
                 lastStagePass =  101001,
-                modePick = -1
             };
         }
     }
@@ -40,27 +38,19 @@ public class PlayerCampaign
     {
         return dataCampaign.lastStagePass;
     }
-    
-    public int GetModePick()
-    {
-        return dataCampaign.modePick;
-    }
-    
+
     public void SetLastStagePass(int stage)
     {
-        dataCampaign.lastStagePass = stage;
-        Save();
+        if (stage > dataCampaign.lastStagePass)
+        {
+            dataCampaign.lastStagePass = stage;
+            Save();
+        }
     }
     
     public void SetCurrentStage(int currentStage)
     {
         dataCampaign.currentStage = currentStage;
-        Save();
-    }
-    
-    public void SetModePick(int modePick)
-    {
-        dataCampaign.modePick = modePick;
         Save();
     }
 }
@@ -69,5 +59,4 @@ public class PlayerCampaign
 public class PlayerCampaignSaveLoad{
     [JsonProperty("0")] public int currentStage;
     [JsonProperty("1")] public int lastStagePass;
-    [JsonProperty("2")] public int modePick;
 }

@@ -8,8 +8,10 @@ public class PlayerCharacterSaveLoad : DataSave<CharacterResource>
 {
     [JsonProperty("1")] public int currentCharacter;
 }
+
 public class PlayerCharacter
 {
+    [JsonProperty("player_character")]
     private PlayerCharacterSaveLoad resourceList = new PlayerCharacterSaveLoad();
     private Dictionary<int, CharacterResource> inventoryDic = new Dictionary<int, CharacterResource>();
 
@@ -22,8 +24,7 @@ public class PlayerCharacter
     {
         resourceList =
             JsonConvert.DeserializeObject<PlayerCharacterSaveLoad>(PlayerPrefs.GetString(KeyUtils.CHARACTER_DATA));
-            //JsonUtility.FromJson<PlayerCharacterSaveLoad>(PlayerPrefs.GetString(KeyUtils.CHARACTER_DATA));
-
+        //JsonUtility.FromJson<PlayerCharacterSaveLoad>(PlayerPrefs.GetString(KeyUtils.CHARACTER_DATA));
         if (resourceList == null)
         {
             resourceList = new PlayerCharacterSaveLoad {currentCharacter = 0};
@@ -33,7 +34,7 @@ public class PlayerCharacter
                 int id = UnityEngine.Random.Range(0, 4);
                 resourceList.AddData(CharacterResource.CreateInstance((int) ResourceType.CharacterType, id, 1, i));
             }
-            
+
             Save();
         }
 
@@ -56,22 +57,22 @@ public class PlayerCharacter
     public bool AddCharacter(CharacterResource resource)
     {
         if (resource == null || inventoryDic.ContainsKey(resource.characterId)) return false;
-        
+
         resourceList.AddData(resource);
         inventoryDic.Add(resource.characterId, resource);
         Save();
-        
+
         return true;
     }
 
     public bool RemoveCharacter(CharacterResource resource)
     {
         if (resource == null) return false;
-        
+
         resourceList.RemoveData(resource);
         inventoryDic.Remove(resource.characterId);
         Save();
-        
+
         return true;
     }
 
@@ -84,7 +85,7 @@ public class PlayerCharacter
         resourceList.currentCharacter = characterId;
         Save();
     }
-    
+
     /// <summary>
     /// Get current character
     /// </summary>
@@ -96,7 +97,7 @@ public class PlayerCharacter
             var characterResource = inventoryDic[resourceList.currentCharacter];
             return characterResource;
         }
-        
+
         return null;
     }
 }

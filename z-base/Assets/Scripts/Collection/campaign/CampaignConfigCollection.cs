@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using deVoid.UIFramework;
 using UnityEngine;
 
@@ -48,21 +47,21 @@ public class CampaignConfigCollection : ScriptableObject
         return mode.IsPassModeWithStage(stage);
     }
 
-    public CampaignStageData GetNextStage(int lastStage)
+    public CampaignStageData GetNextStage(int stageId)
     {
-        var modeId = CampaignModeConfig.GetModeId(lastStage);
+        var modeId = CampaignModeConfig.GetModeId(stageId);
 
         // check mode with current stage
         var mode = GetModeCampaignWithId(modeId);
         if (mode == null) return null;
 
         // check map with current stage
-        var mapId = CampaignMapConfig.GetMapId(lastStage);
+        var mapId = CampaignMapConfig.GetMapId(stageId);
 
         var map = mode.GetMapWithId(mapId);
         if (map == null) return null;
 
-        var stage = map.GetNextStage(lastStage);
+        var stage = map.GetNextStage(stageId);
         if (stage != null)
         {
             return stage;
@@ -81,12 +80,12 @@ public class CampaignConfigCollection : ScriptableObject
             map = mode.GetMapWithId(1);
             if (map == null) return null;
 
-            stage = map.GetNextStage(lastStage);
+            stage = map.GetNextStage(stageId);
             if (stage != null) return stage;
         }
         else
         {
-            stage = map.GetNextStage(lastStage);
+            stage = map.GetNextStage(stageId);
             if (stage != null)
             {
                 return stage;
@@ -96,14 +95,24 @@ public class CampaignConfigCollection : ScriptableObject
         return null;
     }
 
+    public CampaignStageData GetStageCampaignWithStageId(int stageId)
+    {
+        return worldConfig.GetModeCampaignWithStageId(stageId).GetMapWithStageId(stageId).GetStageWithStageId(stageId);
+    }
+    
     public CampaignModeConfig GetModeCampaignWithId(int id)
     {
         return worldConfig.GetModeCampaignWithId(id);
     }
 
-    public CampaignMapConfig GetMapCampaignConfigWithStageId(int stage)
+    public CampaignModeConfig GetModeCampaignWithStageId(int stageId)
     {
-        return worldConfig.GetModeCampaignWithStageId(stage).GetMapWithStageId(stage);
+        return worldConfig.GetModeCampaignWithId(stageId);
+    }
+    
+    public CampaignMapConfig GetMapCampaignConfigWithStageId(int stageId)
+    {
+        return worldConfig.GetModeCampaignWithStageId(stageId).GetMapWithStageId(stageId);
     }
 
     public void Convert()
@@ -270,11 +279,11 @@ public class CampaignMapConfig : WindowProperties
         return null;
     }
 
-    public CampaignStageData GetStageWithId(int stage)
+    public CampaignStageData GetStageWithStageId(int stageId)
     {
         for (int i = 0; i < stageList.Count; i++)
         {
-            if (stage == stageList[i].stage) return stageList[i];
+            if (stageId == stageList[i].stage) return stageList[i];
         }
 
         return null;

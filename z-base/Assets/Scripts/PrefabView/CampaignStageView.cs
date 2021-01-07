@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using deVoid.UIFramework;
 using EnhancedUI.EnhancedScroller;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Random = System.Random;
 
 public class CampaignStageView : EnhancedScrollerCellView
 {
@@ -86,7 +82,11 @@ public class CampaignStageView : EnhancedScrollerCellView
         if (canPlay)
         {
             playerMoney.SubOne((MoneyType) require.id, require.number);
-            SceneManager.LoadScene("10.Result");
+
+            var isWin = UnityEngine.Random.Range(0, 5) % 2 == 0 ? true : false;
+            
+            UIFrame.Instance.CloseWindow(WindowIds.StageCampaign);
+            UIFrame.Instance.OpenWindow(WindowIds.BattleResultCampaign, new BattleResultProperties(isWin, data.stage));
         }
         else Debug.Log("not enough money");
     }

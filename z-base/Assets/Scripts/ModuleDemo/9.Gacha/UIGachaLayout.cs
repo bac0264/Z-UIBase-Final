@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -87,7 +88,7 @@ public class UIGachaLayout : MonoBehaviour
             }
 
             UpdateView(gachaData);
-            WindowManager.Instance.ShowWindowWithData<Reward[]>(WindowType.UI_SHOW_REWARD, rewards);
+            UIFrame.Instance.OpenWindow(WindowIds.UIShowReward, new ShowRewardProperties(rewards));
         }
     }
     
@@ -99,7 +100,7 @@ public class UIGachaLayout : MonoBehaviour
         }
         if (timeCountDownGacha1 != null)
         {
-            StopCoroutine(timeCountDownGacha1);
+            CoroutineManager.instance.StopCoroutine(timeCountDownGacha1);
             timeCountDownGacha1 = null;
         }
         
@@ -121,7 +122,7 @@ public class UIGachaLayout : MonoBehaviour
         if (!isFreeGacha && timeCheck)
         {
              timeCountDownGacha1 =
-                     StartCoroutine(TimeUtils.TimeGachaCoundown(timeGacha1, -rangeTime, UpdateView));
+                     CoroutineManager.instance.StartCoroutine(TimeUtils.TimeGachaCoundown(timeGacha1, -rangeTime, UpdateView));
         }
     }
     

@@ -765,7 +765,7 @@ namespace EnhancedUI.EnhancedScroller
             }
 
             // start tweening
-            TimeManager.Ins.StartCoroutine(TweenPosition(tweenType, tweenTime, ScrollPosition, newScrollPosition, jumpComplete));
+            CoroutineManager.instance.StartCoroutine(TweenPosition(tweenType, tweenTime, ScrollPosition, newScrollPosition, jumpComplete));
         }
 
         /// <summary>

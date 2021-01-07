@@ -6,6 +6,7 @@ using Zitga.Localization;
 
 public class PlayerSetting
 {
+    [JsonProperty("player_setting")]
     private PlayerSettingData settingData;
 
     public PlayerSetting()
@@ -29,6 +30,7 @@ public class PlayerSetting
 
     public void Save()
     {
+        Debug.Log("setting");
         PlayerPrefs.SetString(KeyUtils.SETTING_DATA, JsonConvert.SerializeObject(settingData));
     }
     

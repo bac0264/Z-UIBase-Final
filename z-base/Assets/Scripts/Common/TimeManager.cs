@@ -19,23 +19,23 @@ public class TimeManager : MonoBehaviour
     //make sure there is only one instance of this always.
     void Awake()
     {
-        // if (Ins == null)
-        // {
+        if (Ins == null)
+        {
              Ins = this;
-        // }
-        // else if (Ins != this)
-        // {
-        //     Destroy(gameObject);
-        // }
-
-        //DontDestroyOnLoad(gameObject);
+             DontDestroyOnLoad(Ins);
+        }
+        else if (Ins != this)
+        {
+            Destroy(gameObject);
+        }
+        
         UpdateTime();
         timeData = DataPlayer.GetModule<PlayerTime>();
     }
 
     public void UpdateTime(Action callBack = null)
     {
-        StartCoroutine(GetTime(SaveTime, callBack));
+        CoroutineManager.instance.StartCoroutine(GetTime(SaveTime, callBack));
     }
 
     private void OnApplicationPause(bool pause)
@@ -63,7 +63,7 @@ public class TimeManager : MonoBehaviour
         {
             timeData.SetLastTimeOnline(currentTime.TotalSecondTimeStamp());
             if (startTime == null)
-                startTime = StartCoroutine(TimeCountDown());
+                startTime = CoroutineManager.instance.StartCoroutine(TimeCountDown());
         }
     }
 

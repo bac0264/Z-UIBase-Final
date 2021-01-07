@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerDailyQuest
 {
+    [JsonProperty("player_daily_quest")]
     private PlayerDailyQuestData playerQuestData;
 
     public PlayerDailyQuest()
@@ -14,6 +15,7 @@ public class PlayerDailyQuest
 
     public void Save()
     {
+        Debug.Log("dailyQuest");
         PlayerPrefs.SetString(KeyUtils.QUEST_DATA, JsonConvert.SerializeObject(playerQuestData));
     }
     

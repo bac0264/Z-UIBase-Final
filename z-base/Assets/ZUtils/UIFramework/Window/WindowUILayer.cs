@@ -181,11 +181,11 @@ namespace deVoid.UIFramework
             var isCurrent = CurrentWindow == windowEntry.Screen;
             if (isCurrent)
             {
-                Debug.LogWarning(
-                    $"[WindowUILayer] The requested WindowId ({CurrentWindow.ScreenId}) is already open! This will add a duplicate to the " +
-                    "history and might cause inconsistent behaviour. It is recommended that if you need to open the same" +
-                    "screen multiple times (eg: when implementing a warning message pop-up), it closes itself upon the player input" +
-                    "that triggers the continuation of the flow.");
+                // Debug.LogWarning(
+                //     $"[WindowUILayer] The requested WindowId ({CurrentWindow.ScreenId}) is already open! This will add a duplicate to the " +
+                //     "history and might cause inconsistent behaviour. It is recommended that if you need to open the same" +
+                //     "screen multiple times (eg: when implementing a warning message pop-up), it closes itself upon the player input" +
+                //     "that triggers the continuation of the flow.");
             }
             else if (CurrentWindow != null
                      && CurrentWindow.HideOnForegroundLost

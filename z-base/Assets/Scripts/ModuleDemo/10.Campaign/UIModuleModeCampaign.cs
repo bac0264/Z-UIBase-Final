@@ -51,7 +51,6 @@ public class UIModuleModeCampaign : AWindowController
     public void OnClickGo()
     {
         var modeIndex = snap.GetIndex() + 1;
-        DataPlayer.GetModule<PlayerCampaign>().SetModePick(modeIndex);
         
         CloseWindow();
         

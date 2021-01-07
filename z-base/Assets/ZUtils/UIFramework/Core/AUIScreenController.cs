@@ -192,8 +192,6 @@ namespace deVoid.UIFramework
         /// <param name="props">The data for the screen.</param>
         public void Show(IScreenProperties props = null)
         {
-            OnSoundOpen();
-            buttonClose.interactable = false;
             if (props != null)
             {
                 if (props is TProps screenProperties)
@@ -213,6 +211,8 @@ namespace deVoid.UIFramework
 
             if (!gameObject.activeSelf)
             {
+                OnSoundOpen();
+                buttonClose.interactable = false;
                 DoAnimation(animIn, OnTransitionInFinished, true);
             }
             else

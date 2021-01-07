@@ -21,7 +21,8 @@ public class DemoAllUI : MonoBehaviour
         instance = this;
         context = Context.Current;
         PublisherService.Register();
-
+        DataPlayer.GetDataToServer();
+        
         InitUpdateSystem();
         InitLocalization();
         InitSoundManager();
@@ -126,7 +127,11 @@ public class DemoAllUI : MonoBehaviour
     
     public void GiftCode()
     {
-        return;
         UIFrame.Instance.OpenWindow(WindowIds.GiftCode);
+    }
+
+    public void SendToServer()
+    {
+        DataPlayer.SendDataToServer();
     }
 }

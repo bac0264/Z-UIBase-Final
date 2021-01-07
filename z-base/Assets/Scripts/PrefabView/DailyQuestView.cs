@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using deVoid.UIFramework;
 using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 using UnityEngine.UI;
@@ -40,8 +41,8 @@ public class DailyQuestView : EnhancedScrollerCellView
         reloadData?.Invoke(index);
         
         Reward.RecieveManyRewards(questData.rewards);
-        WindowManager.Instance.ShowWindowWithData<Reward[]>(WindowType.UI_SHOW_REWARD, questData.rewards);
-        
+
+        UIFrame.Instance.OpenWindow(WindowIds.UIShowReward, new ShowRewardProperties(questData.rewards));
     }
 
     public void SetData(DailyQuestData questData, Action<int> reloadData, int index)

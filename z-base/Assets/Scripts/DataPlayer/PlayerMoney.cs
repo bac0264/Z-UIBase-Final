@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 
 public class PlayerMoney
 {
+    [JsonProperty("player_money")]
     private DataSave<Resource> resourceList = new DataSave<Resource>();
     private Dictionary<MoneyType, Resource> resourceDic = new Dictionary<MoneyType, Resource>();
 
@@ -157,6 +158,7 @@ public class PlayerMoney
 
     public void Save()
     {
+        Debug.Log("shop");
         PlayerPrefs.SetString(KeyUtils.RESOURCE_DATA, JsonConvert.SerializeObject(resourceList));
     }
 
