@@ -1,7 +1,7 @@
 ﻿public sealed class WindowIds
 {
     public static string UIShowReward = "Windows/ui_show_reward";
-    public static string HomeWindow = "Windows/home_window";
+    public static string HomeMain = "Windows/ui_home_main";
     public static string Ads = "Windows/ui_ads";
     public static string Inventory = "Windows/ui_inventory";
     public static string ItemToolTip = "Windows/ui_item_tooltip";

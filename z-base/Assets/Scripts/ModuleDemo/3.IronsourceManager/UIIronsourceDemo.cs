@@ -30,8 +30,7 @@ public class UIIronsourceDemo : AWindowController
         void onSuccess()
         {
             var adsData = adsConfigCollection.GetAdsConfigData(playerAds.GetAdsCount());
-            WindowManager.Instance.ShowWindowWithData<Reward[]>(WindowType.UI_SHOW_REWARD, adsData.Rewards);
-            
+            UIFrame.Instance.OpenWindow(WindowIds.UIShowReward, new ShowRewardProperties(adsData.Rewards));
             playerAds.AddAds(1);
         }
         

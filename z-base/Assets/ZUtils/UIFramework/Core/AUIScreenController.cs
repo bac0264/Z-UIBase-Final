@@ -115,7 +115,7 @@ namespace deVoid.UIFramework
         /// </summary>
         protected virtual void AddListeners()
         {
-            buttonClose.onClick.AddListener(CloseWindow);
+            if (buttonClose != null) buttonClose.onClick.AddListener(CloseWindow);
         }
 
         /// <summary>
@@ -212,7 +212,7 @@ namespace deVoid.UIFramework
             if (!gameObject.activeSelf)
             {
                 OnSoundOpen();
-                buttonClose.interactable = false;
+                if (buttonClose != null) buttonClose.interactable = false;
                 DoAnimation(animIn, OnTransitionInFinished, true);
             }
             else
@@ -242,7 +242,7 @@ namespace deVoid.UIFramework
         private void OnTransitionInFinished()
         {
             IsVisible = true;
-            buttonClose.interactable = true;
+            if (buttonClose != null) buttonClose.interactable = true;
             InTransitionFinished?.Invoke(this);
         }
 

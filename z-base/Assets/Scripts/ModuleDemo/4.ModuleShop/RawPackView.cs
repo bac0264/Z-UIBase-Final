@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using deVoid.UIFramework;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class RawPackView : MonoBehaviour
@@ -94,7 +95,7 @@ public class RawPackView : MonoBehaviour
             rewardDatas[i].RecieveReward();
         }
         Debug.Log("rewardDatas: "+rewardDatas.Length);
-        WindowManager.Instance.ShowWindowWithData<Reward[]>(WindowType.UI_SHOW_REWARD, rewardDatas);
+        UIFrame.Instance.OpenWindow(WindowIds.UIShowReward, new ShowRewardProperties(rewardDatas));
         RefreshUI();
     }
 }

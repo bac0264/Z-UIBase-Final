@@ -27,7 +27,7 @@ public class DemoAllUI : MonoBehaviour
 
     private void Start()
     {
-        //UIFrame.Instance.OpenWindow(WindowIds.HomeWindow);
+        UIFrame.Instance.OpenWindow(WindowIds.HomeMain);
     }
 
     private void InitUIFrame()
@@ -72,62 +72,5 @@ public class DemoAllUI : MonoBehaviour
     private void Update()
     {
         updateSystem.OnUpdate(Time.deltaTime);
-    }
-
-    public void Inventory()
-    {
-        UIFrame.Instance.OpenWindow(WindowIds.Inventory);
-    }
-
-    public void ItemToolTip()
-    {
-        UIFrame.Instance.OpenWindow(WindowIds.ItemToolTip);
-    }
-
-    public void Ads()
-    {
-        UIFrame.Instance.OpenWindow(WindowIds.Ads);
-    }
-
-    public void Shop()
-    {
-        UIFrame.Instance.OpenWindow(WindowIds.Shop);
-    }
-
-    public void DailyReward()
-    {
-        UIFrame.Instance.OpenWindow(WindowIds.DailyReward);
-    }
-
-    public void DailyQuest()
-    {
-        UIFrame.Instance.OpenWindow(WindowIds.DailyQuest);
-    }
-
-    public void Campaign()
-    {
-        var mapConfig = LoadResourceController.GetCampaignConfigCollection()
-            .GetMapCampaignConfigWithStageId(DataPlayer.GetModule<PlayerCampaign>().GetLastStagePass());
-        UIFrame.Instance.OpenWindow(WindowIds.StageCampaign, mapConfig);
-    }
-    
-    public void Gacha()
-    {
-        UIFrame.Instance.OpenWindow(WindowIds.Gacha);
-    }
-
-    public void Setting()
-    {
-        UIFrame.Instance.OpenWindow(WindowIds.Setting);
-    }
-    
-    public void GiftCode()
-    {
-        UIFrame.Instance.OpenWindow(WindowIds.GiftCode);
-    }
-
-    public void SendToServer()
-    {
-        DataPlayer.SendDataToServer();
     }
 }
